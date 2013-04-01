@@ -1,4 +1,4 @@
-html {
+body {
     background-image: url("../img/mochaGrunge.png");
     background-repeat: repeat;
 }
@@ -13,6 +13,12 @@ html {
     bottom: 0px;
     width: 100%;
     background-color: #000000;
+}
+
+.hero-unit {
+    margin: 100px 60px 60px;
+    padding: 10px 60px 20px;
+    background-color: rgba(255,255,255,0.3);
 }
 
 
