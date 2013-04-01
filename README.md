@@ -4,7 +4,7 @@ ScavengerTours
 <ul>
 <li>Group Members: Sarah Babski, Claire Hripcsak, Denis Plotkin, Sofia Wyetzner</li>
 <li>Group Leader: Sofia Wyetzner*</li>
-<li>Task Leaders</li>
+<li>Tasks</li>
 
 
 
