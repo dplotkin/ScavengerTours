@@ -1,0 +1,123 @@
+body {
+    padding-top: 60px;
+    background-color: #b6e1f4;
+}
+
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    margin-top: 20px;
+    margin-bottom: -90px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.navbar .navbar-inner {
+    border: 0;
+    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    box-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+.nav-pills {
+    margin: 0px auto;
+}
+.hero-unit {
+    background-color: #e3f3fb;
+    border: 1px solid #74c6ea;
+    max-width: 500px;
+    margin: 100px auto 0px;
+    padding: 20px 40px 30px;
+}
+
+.settings-unit {
+    max-width: 900px;
+    padding: 20px 20px 20px;
+    margin: 0px 0px 0px;
+    background-color: #fff;
+    border: 1px solid #74c6ea;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.tabbable {
+    margin: 60px auto 60px;
+    padding: 20px 20px 20px;
+}
+
+.set-table {
+    max-width: 600px;
+    margin: auto;
+}
+
+hr {
+    color: #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+.todo {
+    margin: 40px auto 0px;
+}
+.time {
+    margin: 150px auto 150px;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+.footer {
+    margin: 160px 60px 15px;
+    clear: both;
+    padding: 0;
+    vertical-align: middle;
+    line-height: normal;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.form-signin {
+    max-width: 300px;
+    padding: 19px 29px 29px;
+    margin: 100px auto 20px;
+    background-color: #e3f3fb;
+    border: 1px solid #74c6ea;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
+
+.welcome{
+    margin: 50px auto 20px;
+}
+
+.no{
+    background-color: #b6e1f4;
+    max-width: 700px;
+    margin: 120px auto 0px;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.btn-custom { background-color: hsl(209, 59%, 26%) !important; background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7dafdd", endColorstr="#1b4369"); background-image: -khtml-gradient(linear, left top, left bottom, from(#7dafdd), to(#1b4369)); background-image: -moz-linear-gradient(top, #7dafdd, #1b4369); background-image: -ms-linear-gradient(top, #7dafdd, #1b4369); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7dafdd), color-stop(100%, #1b4369)); background-image: -webkit-linear-gradient(top, #7dafdd, #1b4369); background-image: -o-linear-gradient(top, #7dafdd, #1b4369); background-image: linear-gradient(#7dafdd, #1b4369); border-color: #1b4369 #1b4369 hsl(209, 59%, 15.5%); color: #fff !important; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.69); -webkit-font-smoothing: antialiased; }
+
+
