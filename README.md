@@ -36,6 +36,6 @@ ScavengerTours
 </ul>
 
 
-
+<br><br>
 
 *We, as a commune, subscribe to the Marxist set of ideals and hence do not recongnize the concept of a "group leader". Sofia is simply the figure-head of our local government.    
