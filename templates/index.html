@@ -10,16 +10,61 @@
     <link rel="stylesheet" href="/static/css/style.css">
   </head>
 
-  <div class="body" style="background-image:url(../mochaGrunge.png); background-repeat:repeat">
+  <div class="body">
     <div class="container-fluid">
       <div class="row-fluid">
-	<div class="span5">
+	<div class="span12">
 	  <div class="hero-unit">
-	    <h1>Welcome!</h1>
-	    <p>
-	      <br>This is ScavengerTours.<br>
-	      Here will be some information on our objective for this project, basic instructions or whatever.
-	    </p>
+
+	    <!-- This is a welcome message -->
+	    <div class="row-fluid">
+	      <div class="span6">
+		<h1>Welcome!</h1>
+		<p>
+		  <br>This is ScavengerTours.<br>
+		  Here will be some information on our objective for this project, basic instructions or whatever.
+		</p>
+	      </div>
+
+	      <!-- Sign up/Log in form -->
+	      <div class="span4 offset2">
+		<form class="form-horizontal" method="post" action="/form/">
+		  <fieldset>
+		    <h3>Begin Your Adventure!</h3>
+		    <div class="control-group">
+                      <label class="control-label" for="id_username">Sign In</label>
+                      <div class="controls">
+                        <button class="btn" type="button">
+			  <i class="icon-globe icon-large"></i>
+			</button>
+                      </div>
+		    </div>
+		    <div class="control-group">
+                      <label class="control-label" for="id_username">Sign Up</label>
+                      <div class="controls">
+                        <button class="btn" type="button">
+			  <i class="icon-plus icon-large"></i>
+			</button>
+                      </div>
+		    </div>
+		    <div class="control-group">
+                      <div class="controls">
+			or
+                      </div>
+		    </div>
+		    <div class="control-group">
+                      <label class="control-label" for="id_username">Sign in with Google</label>
+                      <div class="controls">
+                        <button class="btn" type="button">
+			  ?
+			</button>
+                      </div>
+		    </div>
+		  </fieldset>
+		</form>
+	      </div>
+	      
+	    </div>
 	  </div>
 	</div>
       </div>
