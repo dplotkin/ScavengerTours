@@ -1,0 +1,16 @@
+from pymongo import Connection
+
+class database:
+    def __init__(self):
+        connection = Connection('mongo.stuycs.org')
+        db = connection.admin
+        db = db.authenticate('ml7','ml7')
+        db = connection['BelarussianMafia']
+        tours = db['tours']
+
+        def drop(self):
+            db.tours.drop()
+
+        def addTour(self, title, clues, hints, ratings, reviews, coordinates, city, image):
+            db.tours.insert({'title':title, 'clues':clues, 'hints':hints, rating
+    
