@@ -18,11 +18,11 @@ ScavengerTours
   <li>What do we expect to have done by the first Friday?</li>
   
   <ul>
-    <li> Research, figure out and plan out how to use the API's</li>
-    <li> Basic templates for all webpages </li>
-    <li> Decide what type of data storage suits our needs </li>
-    <li> Design the webpage </li>
-    <li> Differentiate the mobile site from the desktop site </li>
+    <li> Research, figure out and plan out how to use the API's <strong> - done</strong>, can't use reverse google search but google maps is all good</li>
+    <li> Basic templates for all webpages <strong> - done</strong>, basic files made for taking tours, not creating tours </li>
+    <li> Decide what type of data storage suits our needs <strong> - done</strong>, we're going to use mongodb </li>
+    <li> Design the webpage <strong> - done</strong>, designs are drawn out on paper</li>
+    <li> Differentiate the mobile site from the desktop site <strong> - done</strong>, both will be used, mobile will be an app created by PhoneGap</li>
   </ul>
 
   <li> What do we expect to have done by the second Friday?</li>
