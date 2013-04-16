@@ -12,6 +12,14 @@ def index():
 def homepage():
     return render_template('homepage.html')
 
+@app.route("/tours")
+def tours():
+    return render_template('tours.html')
+
+@app.route("/error")
+def error():
+    return render_template('error.html')
+
 if __name__ == "__main__":
     app.debug=True
     app.run()
