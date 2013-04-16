@@ -24,7 +24,6 @@ body {
     border-radius:0px;
 }
 
-td {
-    border-left: 1px solid black; 
-    margin: 5px; 
+.special {
+    text-align: center;
 }
