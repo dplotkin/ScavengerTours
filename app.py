@@ -20,6 +20,10 @@ def tours():
 def error():
     return render_template('error.html')
 
+@app.route("/google")
+def google():
+    return render_template('google.html')
+
 if __name__ == "__main__":
     app.debug=True
     app.run()
