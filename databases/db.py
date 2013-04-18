@@ -9,6 +9,7 @@ users = db['users']
 
 def drop():
     db.tours.drop()
+    db.users.drop()
 
 def addTour(title, clues, hints, ratings, reviews, coordinates, city, image):
     db.tours.insert({'title':title, 'clues':clues, 'hints':hints, 'ratings':ratings, 'reviews': reviews, 'coordinates': coordinates, 'city':city, 'image':image})
@@ -22,9 +23,18 @@ def getTour(title):
 def getUser(username):
     return db.users.find({'username':username})
 
-addUser("swyetzner","38472")
-print getUser('swyetzner')
+def getUserList():
+    return [[x['username'], x['accesskey']] for x in db.users.find()]
 
+def getTourList(city):
+    return [x['title'] for x in db.tours.find({'city':city})]
+
+# drop()
+# addUser("swyetzner","38472")
+# addUser("sbabski","62398")
+# print getUserList()
+# addTour("New York Hipster Tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "img1")
+# print getTourList("New York City")
 
             
                              
