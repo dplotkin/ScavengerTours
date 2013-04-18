@@ -20,6 +20,10 @@ def tours():
 def error():
     return render_template('error.html')
 
+@app.route("/city")
+def city():
+    return render_template('city.html')
+
 if __name__ == "__main__":
     app.debug=True
     app.run()
