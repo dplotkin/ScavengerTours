@@ -20,6 +20,7 @@ def tours():
 def error():
     return render_template('error.html')
 
+<<<<<<< HEAD
 @app.route("/city")
 def city():
     return render_template('city.html')
@@ -27,6 +28,14 @@ def city():
 @app.route("/touroverview")
 def touroverview():
     return render_template('touroverview.html')
+
+@app.route("/google")
+def google():
+    return render_template('google.html')
+
+@app.route("/map")
+def map():
+    return render_template('map.html')
 
 if __name__ == "__main__":
     app.debug=True
