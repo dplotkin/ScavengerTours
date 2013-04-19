@@ -10,6 +10,8 @@
 
   </head>
 
+{% extends "index.html" %}
+{% block container %}
   <div class="body">
     <div class="container special">
       <h2>We'll have a carousel here, but for the initial test page, it is unnecessary.</h2>
@@ -47,8 +49,6 @@
       <p><a class="btn" href="/tours">View details &raquo;</a></p>
     </div>
     
-    </div>
-    
     <!-- Footer! -->
     <div class="footer">
       <div class="row-fluid">
@@ -63,5 +63,5 @@
       </div>
     </div>
 
-  </div>
-</html>
+{% endblock container %}
+

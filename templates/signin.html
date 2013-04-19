@@ -1,19 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>ScavengerTours</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="http://stuycs-ml7.github.com/img/thluffy.png">
-    <!-- Styles -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-  </head>
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!--   <head> -->
+<!--     <title>ScavengerTours</title> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!--     <link rel="shortcut icon" href="http://stuycs-ml7.github.com/img/thluffy.png"> -->
+<!--     <\!-- Styles -\-> -->
+<!--     <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+<!--     <link rel="stylesheet" href="/static/css/font-awesome.min.css"> -->
+<!--     <link rel="stylesheet" href="/static/css/style.css"> -->
+<!--   </head> -->
 
+{% extends "index.html" %}
+{% block container %}
   <div class="body">
 
     <div id="#signinbox"class="span6">
-      Sign In
+      <form method="POST" action="">
+	Username: <input type="text" name="username" size="15" /><br />
+	Password: <input type="password" name="password" size="15" /><br />
+	<p><input type="submit" value="Login" /></p>
+     </form>
     </div>
 
     <!-- Footer -->
@@ -23,5 +29,5 @@
     </div>
 
   </div>
-
-</html>
+{% endblock container %}
+<!-- </html> -->
