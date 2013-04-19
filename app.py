@@ -22,7 +22,7 @@ def login():
     elif request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        if database.verify(username, password):
+        if db.verify(username, password):
             session["user"] = username
             return redirect(url_for("index"))
     return render_template("signin.html", title="Login")

@@ -29,6 +29,12 @@ def getUserList():
 def getTourList(city):
     return [x['title'] for x in db.tours.find({'city':city})]
 
+def verify(username, accesskey):
+    if db.users.find({"username":username,"accesskey":accesskey}).count() != 0:
+        return True
+    else:
+        return False
+
 # drop()
 # addUser("swyetzner","38472")
 # addUser("sbabski","62398")
