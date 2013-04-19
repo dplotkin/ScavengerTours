@@ -7,6 +7,7 @@
     <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
+
   </head>
 
   <div class="body">
@@ -22,28 +23,44 @@
     </div>
 
     <!-- Score and Links to different pages -->
-    <div class="hero-unit">
-      <div class="hero-unit special">
-	<h4>Your score lives here </h4>
-      </div>
-      <div class="special">
+
+    <div class="featurette">
+      <img class="featurette-image pull-left" src="http://stuycs-ml7.github.com/img/thluffy.png">
+      <h2 class="featurette-heading">Create a Tour</h2>
+      <p class="lead">Basic info on how to create a tour.</p>
+    </div>
+    <div class="featurette">
+      <img class="featurette-image pull-right" src="http://stuycs-ml7.github.com/img/thluffy.png">
+      <h2 class="featurette-heading">Select a Tour</h2>
+      <p class="lead">Basic info on how to create a tour.</p>
+    </div>
+
+    <div class="special">
 	<img src="http://stuycs-ml7.github.com/img/thluffy.png" width="130px">
 	<h2>Create a Tour</h2>
-	<p><a class="btn" href="/error">View details &raquo;</a></p>
-      </div>
-      <div class="special">
-      	<img src="http://stuycs-ml7.github.com/img/thluffy.png" width="130px">
-      	<h2>Select a Tour</h2>
-      	<p>Select from any of our premade tours to complete at a later time on your mobile device.</p>
-      	<p><a class="btn" href="/tours">View details &raquo;</a></p>
-      </div>
-      
+	<a class="btn" href="/error">View details &raquo;</a>
+    </div>
+    <div class="special">
+      <img src="http://stuycs-ml7.github.com/img/thluffy.png" width="130px">
+      <h2>Select a Tour</h2>
+      <p>Select from any of our premade tours to complete at a later time on your mobile device.</p>
+      <p><a class="btn" href="/tours">View details &raquo;</a></p>
     </div>
     
-    <!-- Footer -->
+    </div>
+    
+    <!-- Footer! -->
     <div class="footer">
-      <p> Grits McGrits 2013 </p>
-      Pattern courtesy of <a target="_blank" href="http://www.subtlepatterns.com">Subtle Patterns</a>
+      <div class="row-fluid">
+	<div class="span3">
+	  Grits McGrits · 2013<br>
+	  Pattern courtesy of <a target="_blank" href="http://www.subtlepatterns.com">Subtle Patterns</a>
+	</div>
+	<div class="span3">
+	  Your score: 10000<br>
+	  <a href="/home">Back to Home</a>
+	</div>
+      </div>
     </div>
 
   </div>
