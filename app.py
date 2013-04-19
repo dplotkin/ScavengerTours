@@ -13,6 +13,7 @@ def index():
     user = "Login"
     if "user" in session:
         user = session["user"]
+        return redirect(url_for("home"))
     return render_template('index.html', title="Scavenger Tours", user=user)
 
 @app.route("/login", methods=["GET", "POST"])
@@ -47,7 +48,7 @@ def register():
     return render_template("signup.html", title="Register")
 
 @app.route("/home")
-def homepage():
+def home():
     return render_template('homepage.html')
 
 @app.route("/tours")
