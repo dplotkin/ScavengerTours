@@ -20,7 +20,6 @@ def tours():
 def error():
     return render_template('error.html')
 
-<<<<<<< HEAD
 @app.route("/city")
 def city():
     return render_template('city.html')
