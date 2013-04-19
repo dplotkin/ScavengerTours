@@ -24,6 +24,10 @@ def error():
 def city():
     return render_template('city.html')
 
+@app.route("/touroverview")
+def touroverview():
+    return render_template('touroverview.html')
+
 if __name__ == "__main__":
     app.debug=True
     app.run()
