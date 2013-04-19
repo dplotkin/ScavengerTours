@@ -27,3 +27,21 @@ body {
 .special {
     text-align: center;
 }
+
+.featurette {
+    padding-top: 120px;
+    overflow: hidden;
+}
+.featurette-image {
+    width: 250px;
+    margin: 0px 120px;
+}
+
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}
