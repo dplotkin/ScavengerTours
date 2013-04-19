@@ -49,19 +49,21 @@ def register():
 
 @app.route("/home")
 def home():
-    return render_template('homepage.html')
+    return render_template('homepage.html', title="Your Page")
 
 @app.route("/tours")
 def tours():
-    return render_template('tours.html')
+    cities = db.getCityList()
+    return render_template('tours.html', title="Choose a City", cities=cities)
 
 @app.route("/error")
 def error():
     return render_template('error.html')
 
-@app.route("/city")
-def city():
-    return render_template('city.html')
+@app.route("/<city>")
+def city(city):
+    tours = db.getTourList(city)
+    return render_template('city.html', city = city, tours = tours)
 
 @app.route("/touroverview")
 def touroverview():

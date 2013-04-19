@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>ScavengerTours</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="http://stuycs-ml7.github.com/img/thluffy.png">
-    <!-- Styles -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-  </head>
+{% extends "index.html" %}
 
+{% block container %}
   <div class="body">
 
     <div class="hero-unit">
-      This page will have a map of the world with pinpoints on all cities with tours. Then you will click a city and go to <a href="/city"> here</a>.
+      {% for city in cities %}
+      <p><a href="/{{ city }}">{{ city }}</a><p>
+      {% endfor %}
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-      <p> Grits McGrits 2013 </p>
-      Pattern courtesy of <a target="_blank" href="http://www.subtlepatterns.com">Subtle Patterns</a>
-    </div>
-
-  </div>
-
-</html>
+{% endblock container %}
