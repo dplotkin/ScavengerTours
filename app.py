@@ -65,9 +65,10 @@ def city(city):
     tours = db.getTourList(city)
     return render_template('city.html', city = city, tours = tours)
 
-@app.route("/touroverview")
-def touroverview():
-    return render_template('touroverview.html')
+@app.route("/<city>/<tour>")
+def touroverview(city, tour):
+    description = db.getTour(tour)[0][1]
+    return render_template('touroverview.html', city=city, tour=tour, description = description)
 
 @app.route("/google")
 def google():
