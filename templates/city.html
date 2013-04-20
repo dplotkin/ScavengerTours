@@ -6,6 +6,10 @@
       <h1>{{ city }}</h1>
     </div>
     <div class="special">
+      
+
+<!-- Below should be plugged in to the google maps api for pinpoints to appear on the city. Instead of a list there will be a map here. -->
+
       {% for tour in tours %}
       <p><a href="/{{ city }}/{{ tour }}">{{ tour }}</a></p>
       {% endfor %}
