@@ -23,6 +23,8 @@
       google.maps.event.addDomListener(window, 'load', initialize);
 
       function initialize() {
+      directionsDisplay = new google.maps.DirectionsRenderer();
+
       var mapOptions = {
       center: new google.maps.LatLng(-34.397, 150.644),
       zoom: 8,
@@ -30,9 +32,10 @@
       };
       map  = new google.maps.Map(document.getElementById("map-canvas"),
       mapOptions);
+directionsDisplay.setMap(map);
       
       google.maps.event.addListener(map, 'click', function(event) {
-      
+	  if(listOfLatLng.length == 2){calcRoute();}
       marker = new google.maps.Marker({position: event.latLng, map: map});
       
       $('#coordinates').append('<p id="coordinate">You clicked on: ' + event.latLng + '</p>');
@@ -40,8 +43,25 @@
 	  // console.log(event.latLng.lat() );
 	  
       });
+
+	  
       }
       
+function calcRoute() {
+	  var start = listOfLatLng[0];
+	  var end = listOfLatLng[1];
+  var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.DirectionsTravelMode.WALKING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+
     </script>
     
 
