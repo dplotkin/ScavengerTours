@@ -1,11 +1,21 @@
-{% extends "index.html" %}
+{% extends "homepage.html" %}
 {% block container %}
   <div class="body">
-
-    <div class="hero-unit">
-      Description for tour. Button to put tour on mobile app.
-      <h1>{{ tour }}</h1>
-      <p>{{ description }}</p>
+    <div class="container-fluid">
+      <div class="hero-unit">
+	  <h1 class="alt-heading">{{ tour }}</h1>
+	  <div class="row-fluid">
+	    <div class="span8">
+	      <br><br>
+	      <p>{{ description }}</p><br>
+	      <btn class="btn btn-addtomobile">Add to Mobile</btn>
+	    </div>
+	    <div class="span4">
+	      <!-- obviously this is a placeholder for an image that the user will input -->
+	      <img src="http://stuycs-ml7.github.com/img/thluffy.png" style="margin-top:-40px">
+	    </div>
+	  </div>
+      </div>
     </div>
- </div>
+  </div>
 {% endblock container %}

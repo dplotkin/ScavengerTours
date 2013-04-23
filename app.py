@@ -49,7 +49,8 @@ def register():
 
 @app.route("/home")
 def home():
-    return render_template('homepage.html', title="Your Page")
+    return render_template('homepage.html', title="Welcome")
+# we need to access the username here (should be called name)
 
 @app.route("/tours")
 def tours():

@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>{% block title %}{{ title }}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://stuycs-ml7.github.com/img/thluffy.png">
 
     <!-- Styles -->
     {% block style %}
@@ -13,23 +15,48 @@
 
   <div class="body">
     {% block container %}
-    <div class="hero-unit">
-      <h1>Welcome!</h1>
-      <p>
-	<br>This is ScavengerTours.<br>
-	Here will be some information on our objective for this project, basic instructions or whatever. We should have a video. Take this one for now:
-	<div class="container">
-	  <iframe width="420" height="315" src="http://www.youtube.com/embed/S81keAIvBB0?rel=0" frameborder="0" allowfullscreen></iframe>
-	</div>
-      </p>
-      <p>
-	Google authentication will be here later, but right now click <a href="/home">here</a> to go to the user homepage!
-	<a href="/login">Sign In</a>
-      </p>
-    </div>
 
-    <!-- Footer! -->
+    <div class="container-fluid">
+      <div class="row-fluid">
+	<div class="span12">
+	  <br><br>
+
+	  <!-- Hero unit for the welcome message and sign up -->
+	  <div class="hero-unit" style="margin-top:30px">
+
+	    <!-- This is a welcome message -->
+	    <h1>Welcome!</h1>
+	    <div class="row-fluid">
+	      <div class="span5">
+		<p>
+		  <br>
+		  Have you ever visited a city and felt that ordinary tourist handbooks and attractions did not do their job as thoroughly as expected?<br><br>
+		  Or perhaps you have a unique perspective on your hometown and have unusual sites that you want to share?<br><br>
+		  Any user can create their own ScavengerTours and share it, allowing others to go on a scavenger hunt around a city, using clues to guide them to new sites, whether they are a first-time tourist or have lived there all their life.
+		</p>
+	      </div>
+	      <div class="span5" style="margin: 50px -20px 0px 30px">
+		<p>Watch our introductory video:</p><br>
+		<iframe width="380" height="270" src="http://www.youtube.com/embed/TTd4dkeEvFU?rel=0" frameborder="0" allowfullscreen></iframe>
+	      </div>
+	      <!-- end welcome message -->
+
+	      <div class="span2">
+
+		<!-- Sign in -->
+		<br><br><br>Google authentication will be here later, but right now click <a href="/home">here</a> to go to the user homepage!
+		<a href="/login">Sign In</a>
+
+	      </div>	      
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
     {% endblock container %}
+
+    {% block footer %}
+    <!-- Footer! -->
     <div class="footer">
       <div class="row-fluid">
 	<div class="span3">
@@ -41,6 +68,8 @@
 	</div>
       </div>
     </div>
-
+    {% endblock footer %}
+  
   </div>
 </html>
+
