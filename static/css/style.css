@@ -29,17 +29,16 @@ body {
 }
 
 .featurette {
-    padding-top: 120px;
-    overflow: hidden;
+    padding-top: 50px;
+    margin: 120px 150px;
+
 }
 .featurette-image {
     width: 250px;
-    margin: 0px 120px;
+    margin: -20px;
 }
 
-
-/* Thin out the marketing headings */
-.featurette-heading {
+.alt-heading {
     font-size: 50px;
     font-weight: 300;
     line-height: 1;
