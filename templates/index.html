@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ScavengerTours</title>
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
 
     <!-- Styles -->
+    {% block style %}
     <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    {% endblock style %}
   </head>
 
   <div class="body">
-
+    {% block container %}
     <div class="hero-unit">
       <h1>Welcome!</h1>
       <p>
@@ -22,12 +24,22 @@
       </p>
       <p>
 	Google authentication will be here later, but right now click <a href="/home">here</a> to go to the user homepage!
+	<a href="/login">Sign In</a>
       </p>
     </div>
 
+    <!-- Footer! -->
+    {% endblock container %}
     <div class="footer">
-      <p> Grits McGrits 2013 </p>
-      Pattern courtesy of <a target="_blank" href="http://www.subtlepatterns.com">Subtle Patterns</a>
+      <div class="row-fluid">
+	<div class="span3">
+	  Grits McGrits 2013<br>
+	  Pattern courtesy of <a href="http://www.subtlepatterns.com">Subtle Patterns</a>
+	</div>
+	<div class="span3">
+	  <a href="/logout">Sign Out</a>
+	</div>
+      </div>
     </div>
 
   </div>

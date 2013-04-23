@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block container %}
+<h3>Enter a new username and password</h3>
+<form method="POST" action="">
+  Username: <input type="text" name="username" size="15" /><br />
+  Password: <input type="password" name="password" size="15" /><br />
+  <p><input type="submit" value="Register" /></p>
+</form>
+{% endblock container %}
