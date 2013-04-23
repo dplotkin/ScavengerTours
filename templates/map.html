@@ -48,12 +48,12 @@ directionsDisplay.setMap(map);
       }
       
 function calcRoute() {
-	  var start = listOfLatLng[0];
-	  var end = listOfLatLng[1];
-  var request = {
-      origin:start,
-      destination:end,
-      travelMode: google.maps.DirectionsTravelMode.WALKING
+	 var start = listOfLatLng[0];
+	 var end = listOfLatLng[1];
+var request = {
+ origin:start,
+ destination:end,
+    travelMode: google.maps.DirectionsTravelMode.WALKING
   };
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
@@ -64,7 +64,8 @@ function calcRoute() {
 
     </script>
     
-
+// https://developers.google.com/maps/documentation/javascript/examples/directions-simple
+// https://developers.google.com/maps/documentation/javascript/directions
 
     <script>
 <!-- https://developers.google.com/maps/documentation/javascript/examples/event-simple -->
