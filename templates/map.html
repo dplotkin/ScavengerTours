@@ -26,12 +26,11 @@
       map  = new google.maps.Map(document.getElementById("map-canvas"),
       mapOptions);
       
-      <!-- google.maps.event.addDomListener(document.getElementById("map-canvas"), 'click', showAlert); -->
       google.maps.event.addListener(map, 'click', function(event) {
       
       marker = new google.maps.Marker({position: event.latLng, map: map});
       
-      $('#coordinates').append('<p id="coordinate">"You clicked on:"' + event.latLng + '</p>');
+      $('#coordinates').append('<p id="coordinate">You clicked on: ' + event.latLng + '</p>');
       });
       }
       
