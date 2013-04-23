@@ -15,8 +15,13 @@
     <!-- <script src="/static/js/jquery.js"></script> -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
     <script type="text/javascript">
-      google.maps.event.addDomListener(window, 'load', initialize);
+      var directionsDisplay;
+      var directionsService = new google.maps.DirectionsService();
       var map;
+      var listOfLatLng = [];
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
       function initialize() {
       var mapOptions = {
       center: new google.maps.LatLng(-34.397, 150.644),
@@ -31,11 +36,16 @@
       marker = new google.maps.Marker({position: event.latLng, map: map});
       
       $('#coordinates').append('<p id="coordinate">You clicked on: ' + event.latLng + '</p>');
+	  listOfLatLng.push(event.latLng);
+	  // console.log(event.latLng.lat() );
+	  
       });
       }
       
     </script>
     
+
+
     <script>
 <!-- https://developers.google.com/maps/documentation/javascript/examples/event-simple -->
 <!-- https://developers.google.com/maps/documentation/javascript/examples/ -->
