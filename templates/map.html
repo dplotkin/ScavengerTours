@@ -35,7 +35,7 @@
 directionsDisplay.setMap(map);
       
       google.maps.event.addListener(map, 'click', function(event) {
-	  if(listOfLatLng.length == 10){calcRoute();}
+	  if(listOfLatLng.length == 10){console.log("SKADFJJKDSFAJKDASFSDFJK");calcRoute();}
       marker = new google.maps.Marker({position: event.latLng, map: map});
       
       $('#coordinates').append('<p id="coordinate">You clicked on: ' + event.latLng + '</p>');
@@ -52,7 +52,7 @@ function calcRoute() {
 	 var end = listOfLatLng[listOfLatLng.length - 1];
          var waypts = [];
 
-for(var i = 1; i < listOfLatLng - 1; i++){
+for(var i = 1; i < listOfLatLng.length - 1; i++){
     waypts.push({location:listOfLatLng[i], stopover:true})}		   
 
      
