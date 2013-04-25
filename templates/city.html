@@ -2,17 +2,20 @@
 {% block container %}
 
   <div class="body">
-    <div class="hero-unit special">
-      <h1>{{ city }}</h1>
+    <br><br>
+    <div class="container-fluid">
+      <div class="container special">
+	<h1 class="headingtwo">{{ city }}</h1>
+      </div>
+
+      <div class="row-fluid">
+	{% for tour in tours %}
+	<div class="span6">
+	  <div class="hero-unit">
+	    <p><a href="/{{ city }}/{{ tour }}"><h3>{{ tour }}</h3></a></p>
+	  </div>
+	</div>
+	{% endfor %}
+      </div>
     </div>
-    <div class="special">
-      
-
-<!-- Below should be plugged in to the google maps api for pinpoints to appear on the city. Instead of a list there will be a map here. -->
-
-      {% for tour in tours %}
-      <p><a href="/{{ city }}/{{ tour }}">{{ tour }}</a></p>
-      {% endfor %}
-    </div>
-
 {% endblock container %}

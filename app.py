@@ -79,6 +79,10 @@ def google():
 def map():
     return render_template('map.html')
 
+@app.route("/create")
+def create():
+    return render_template('create.html')
+
 if __name__ == "__main__":
     app.debug=True
     app.run()

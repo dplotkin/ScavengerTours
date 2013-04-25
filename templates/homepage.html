@@ -1,3 +1,4 @@
+
 {% extends "index.html" %}
 {% block container %}
   <div class="body">
@@ -16,12 +17,17 @@
 	    <h2 class="alt-heading">Your Tours</h2>
 	    This will be located on the side and will list the tours you've made, ideally in a box through which you scroll. Which means we need a method in app.py to get a certain user's tours.
 	  </div>
+	  <div class="hero-unit special">
+	    <h2 class="alt-heading">Ongoing Tours</h2>
+	    This box contains the tours you've saved from Select a Tour and are currently on your mobile device.
+	  </div>
 	</div>
-
+	<div style="margin:200px">
+	</div>
 	<!-- Create/Take Tours -->
 	<div class="span7">
 	  <div class="featurette">
-	    <a href="/error">
+	    <a href="/create">
 	      <img class="featurette-image pull-left" src="http://stuycs-ml7.github.com/img/thluffy.png" style="margin-right: 20px">
 	    </a>
 	    <h2 class="alt-heading">
