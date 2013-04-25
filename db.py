@@ -21,7 +21,7 @@ def getTour(title):
     return [[x['title'], x['description'], x['clues'], x['hints'], x['ratings'], x['reviews'], x['coordinates'], x['city'], x['image']] for x in db.tours.find({'title':title})]
 
 def getUser(username):
-    return db.users.find({'username':username})
+    return [[x['username'], x['accesskey'], x['tours'], x['points'], x['currenttour'], x['currenttourstatus']] for x in db.users.find({'username':username})]
 
 def getUserList():
     return [[x['username'], x['accesskey']] for x in db.users.find()]
@@ -42,13 +42,21 @@ def verify(username, accesskey):
     else:
         return False
 
+def addCurrentTourtoUser(username, title):
+    for user in db.users.find():
+        if user["username"] == username:
+            db.users.update({"username":username},{"username":username, "currenttour":title})
+
+
 drop()
-# addUser("swyetzner","38472")
+addUser("swyetzner","38472")
 # addUser("sbabski","62398")
 # print getUserList()
 addTour("New York Hipster Tour", "a hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "img1")
 addTour("New York Not Hipster Tour", "a not hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "img1")
 addTour("Washington Hipster Tour", "a hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "Washington D.C.", "img1")
+addCurrentTourtoUser("swyetzner","New York Hipster Tour")
+print getUser("swyetzner")
 # print getTour("New York Hipster Tour")
 # print getTourList("New York City")
 # print getCityList()
