@@ -7,6 +7,8 @@ DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = "tom_waits_is_grits"
+global currentTour
+currentTour = "None"
 
 @app.route("/")
 def index():
@@ -49,7 +51,8 @@ def register():
 
 @app.route("/home")
 def home():
-    return render_template('homepage.html', title="Welcome")
+    global currentTour
+    return render_template('homepage.html', title="Welcome", currentTour = currentTour)
 # we need to access the username here (should be called name)
 
 @app.route("/tours")
@@ -68,9 +71,11 @@ def city(city):
 
 @app.route("/<city>/<tour>", methods=["GET","POST"])
 def touroverview(city, tour):
+    global currentTour
     description = db.getTour(tour)[0][1]
     if request.method == "POST":
         db.addCurrentTourtoUser(getUser(),tour)
+        currentTour = tour
         print db.getUser(getUser())
         return redirect(url_for("index"))
     return render_template('touroverview.html', city=city, tour=tour, description = description)

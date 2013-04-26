@@ -19,7 +19,12 @@
 	  </div>
 	  <div class="hero-unit special">
 	    <h2 class="alt-heading">Ongoing Tours</h2>
+	    {% if currentTour == "None" %}
 	    This box contains the tours you've saved from Select a Tour and are currently on your mobile device.
+	    {% endif %}
+	    {% if currentTour != "None" %}
+	    {{ currentTour }}
+	    {% endif %}
 	  </div>
 	</div>
 	<div style="margin:200px">
