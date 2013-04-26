@@ -39,8 +39,8 @@ directionsDisplay.setMap(map);
       marker = new google.maps.Marker({position: event.latLng, map: map});
       
       $('#coordinates').append('<p id="coordinate">You clicked on: ' + event.latLng + '</p>');
-	  listOfLatLng.push(event.latLng);
-	  // console.log(event.latLng.lat() );
+      listOfLatLng.push(event.latLng);
+      // console.log(event.latLng.lat() );
 	  
       });
 
@@ -72,8 +72,8 @@ var request = {
 
     </script>
     
-// https://developers.google.com/maps/documentation/javascript/examples/directions-simple
-// https://developers.google.com/maps/documentation/javascript/directions
+<!-- https://developers.google.com/maps/documentation/javascript/examples/directions-simple -->
+<!-- https://developers.google.com/maps/documentation/javascript/directions -->
 
     <script>
 <!-- https://developers.google.com/maps/documentation/javascript/examples/event-simple -->
@@ -85,9 +85,24 @@ var request = {
   </head>
   <body>
     <div id="map-canvas"></div>
-    <div id="coordinates">
+    <div id="instructions">
+      <div id="coordinates">
+	<p><b>Coordinates</b></p>
+      </div>
+      <div id="directions">
+	<p><b>Directions</b></p>
+      </div>
+      <div id="hints">
+	<p><b>Hints</b></p>
+      </div>
+      
     </div>
-
+    
+    <form id="clue">
+      Clue!<input type="textarea" name="clue"/>
+      Hint! <input type="textarea" name="hint"/>
+    </form>
+	 
     
   </body>
 </html>
