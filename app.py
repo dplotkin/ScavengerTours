@@ -66,9 +66,13 @@ def city(city):
     tours = db.getTourList(city)
     return render_template('city.html', city = city, tours = tours)
 
-@app.route("/<city>/<tour>")
+@app.route("/<city>/<tour>", methods=["GET","POST"])
 def touroverview(city, tour):
     description = db.getTour(tour)[0][1]
+    if request.method == "POST":
+        db.addCurrentTourtoUser(getUser(),tour)
+        print db.getUser(getUser())
+        return redirect(url_for("index"))
     return render_template('touroverview.html', city=city, tour=tour, description = description)
 
 @app.route("/google")
