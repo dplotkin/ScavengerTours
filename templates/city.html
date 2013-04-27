@@ -22,10 +22,15 @@
 	<div class="span6">
 	  <div class="hero-unit special" style="margin-top:0px;padding:20px;height:140px">
 	    <div class="span6">
-	    <img src={{ images[loop.index0] }} class="img-circle" width="180" height="100">
+	      <a href="/{{ city }}/{{ tour }}">
+		<img src={{ images[loop.index0] }} class="img-circle" width="180" height="100">
+	      </a>
 	    </div>
-	    <div class="span6">
-	      <p><a href="/{{ city }}/{{ tour }}"><h3>{{ tour }}</h3></a></p>
+	    <div class="span2" style="margin-left:-10px">
+	      <br><a href="/{{ city }}/{{ tour }}"><i class="icon-caret-left icon-4x"></a></i>
+	    </div>
+	    <div class="span4">
+	      <h3> {{ tour }}</h3>
 	    </div>
 	  </div>
 	</div>
