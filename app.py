@@ -7,7 +7,7 @@ DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = "tom_waits_is_grits"
-global currentTour
+global currentTour, istage
 currentTour = "None"
 
 @app.route("/")
@@ -102,7 +102,9 @@ def touroverview(city, tour):
         if request.method == "POST":
             db.addCurrentTourtoUser(getUser(),tour)
             currentTour = tour
-            return redirect(url_for("home"))
+            stage = str(db.getUser(getUser())[0][5])
+            #return redirect(url_for("home"))
+            return redirect("/"+city+"/"+tour+"/"+tour+"/"+stage)
         return render_template('touroverview.html', city=city, tour=tour, description = description, image = image, points = points, title = tour)
     else:
         return redirect(url_for("index"))
@@ -118,6 +120,35 @@ def map():
 @app.route("/create")
 def create():
     return render_template('create.html')
+
+@app.route("/<city>/<tour>/<tour1>/<stage>", methods=["GET","POST"])
+def running(city, tour, tour1, stage):
+    newstage = db.getUser(getUser())[0][5]
+    stages = len(db.getTour(tour)[0][2]) - 1
+    if newstage == "Begin":
+        newstage = 0
+    if newstage == "End":
+        return redirect("complete")
+    if newstage > stages:
+        return redirect("complete")
+    newstage = int(newstage)
+    clue = db.getTour(tour)[0][2][newstage]
+    # hint = db.getTour(tour)[0][3][newstage]
+    if request.method == "POST":
+        db.goToNextStage(getUser(),tour)
+        sstage = str(db.getUser(getUser())[0][5])
+        return  redirect("/"+city+"/"+tour+"/"+tour1+"/"+sstage)
+    return render_template('runningtour.html', city=city, tour=tour, stage=newstage, clue = clue, stages = stages)
+
+
+@app.route("/complete")
+def complete():
+    if "user" in session:
+        db.addPoints(getUser())
+        points = db.getUser(session["user"])[0][3]
+        db.addCurrentTourtoUser(getUser(),"None")
+        return render_template("complete.html")
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
     app.debug=True

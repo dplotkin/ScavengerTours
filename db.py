@@ -47,11 +47,27 @@ def addCurrentTourtoUser(username, title):
         if user["username"] == username:
             db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"], "currenttour":title, "currenttourstatus":"Begin"})
 
+def goToNextStage(username, title):
+    for user in db.users.find():
+        if user["username"] == username:
+            if user["currenttourstatus"] == "Begin":
+                db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"], "currenttour":user["currenttour"], "currenttourstatus":1})
+            else:
+                if user["currenttourstatus"] != len(getTour(title)[0][2]):
+                    db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"], "currenttour":user["currenttour"], "currenttourstatus":user["currenttourstatus"]+1})
+                else:
+                     db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"], "currenttour":user["currenttour"], "currenttourstatus":"End"})
+
+def addPoints(username):
+    for user in db.users.find():
+        if user["username"] == username:
+            db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"]+15, "currenttour":user["currenttour"], "currenttourstatus":user["currenttourstatus"]})
+
 def __int__():
     addUser("swyetzner","38472")
 # addUser("sbabski","62398")
 # print getUserList()
-    addTour("New York Hipster Tour", "a hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "http://www.newyorkpersonalinjuryattorneyblog.com/wp-content/uploads/2010/06/NewYork.jpg")
+    addTour("New York Hipster Tour", "a hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes", "no"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "http://www.newyorkpersonalinjuryattorneyblog.com/wp-content/uploads/2010/06/NewYork.jpg")
     addTour("New York Not Hipster Tour", "a not hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "http://www.sfexaminer.com/files/blog_images/New%20York%20skyline_0.jpg")
     addTour("New York Normal Tour", "a not hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "http://www.drug-rehab.org/wp-content/uploads/2011/03/New-York-2.jpg")
     addTour("Washington Hipster Tour", "a hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "Washington D.C.", "img1")
