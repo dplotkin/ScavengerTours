@@ -8,15 +8,36 @@
 	<h1 class="headingtwo">{{ city }}</h1>
       </div>
 
+
+      {% if count%2 != 0 %}
+      {% set count = count-1 %}
+      {% endif %}
+      
+      {% for tour in tours %}
+      
+      {% if count%2 == 0 %}
       <div class="row-fluid">
-	{% for tour in tours %}
+	{% endif %}
+
 	<div class="span6">
-	  <div class="hero-unit" style="padding-top:40px">
+	  <div class="hero-unit special" style="padding-top:40px;height:180px">
 	    <img src={{ images[loop.index0] }} width="200" height="150">
 	    <p><a href="/{{ city }}/{{ tour }}"><h3>{{ tour }}</h3></a></p>
 	  </div>
 	</div>
-	{% endfor %}
+
+	{% if count%2 != 0 %}
       </div>
+      {% endif %}
+
+      {% if count == 0 %}
     </div>
-{% endblock container %}
+      {% endif %}
+	
+	{% set count = count-1 %}
+	{% endfor %}
+  </div>
+  <div style="margin:100px">
+  </div>
+
+      {% endblock container %}

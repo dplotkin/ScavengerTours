@@ -87,11 +87,12 @@ def city(city):
     if "user" in session:
         points = db.getUser(session["user"])[0][3]
         tours = db.getTourList(city)
+        count = len(tours)
         images = []
         for tour in tours:
             img = db.getTour(tour)[0][8]
             images.append(img)
-        return render_template('city.html', city = city, tours = tours, images = images, points = points)
+        return render_template('city.html', city = city, tours = tours, images = images, points = points, count = count, title = city)
     else:
         return redirect(url_for("index"))
 
@@ -106,7 +107,7 @@ def touroverview(city, tour):
             db.addCurrentTourtoUser(getUser(),tour)
             currentTour = tour
             return redirect(url_for("home"))
-        return render_template('touroverview.html', city=city, tour=tour, description = description, image = image, points = points)
+        return render_template('touroverview.html', city=city, tour=tour, description = description, image = image, points = points, title = tour)
     else:
         return redirect(url_for("index"))
 
