@@ -66,20 +66,15 @@ def home():
 @app.route("/tours")
 def tours():
     if "user" in session:
-        cities = db.getCityList()
+        listOfCities = db.getCityList()
         points = db.getUser(session["user"])[0][3]
-        return render_template('tours.html', title="Choose a City", cities=cities, points = points)
+        return render_template('manyCities.html', title="Choose a City", listOfCities=listOfCities, points = points)
     else:
         return redirect(url_for("index"))
 
 @app.route("/error")
 def error():
     return render_template('error.html')
-
-@app.route("/manyCities")
-def manyCities():
-    listOfCities = db.getCityList()
-    return render_template('manyCities.html',title="manyCities", listOfCities = listOfCities)
 
 @app.route("/<city>")
 def city(city):
