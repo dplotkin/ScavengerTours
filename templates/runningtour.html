@@ -1,0 +1,15 @@
+{% extends "homepage.html" %}
+{% block container %}
+  <div class="body">
+    <div class="container-fluid">
+      <h1>Stage: {{ stage + 1 }}/{{ stages + 1 }}</h1>
+      <div class="hero-unit">
+	<h3>Clue:</h3>
+	<p>{{ clue }}</p>
+	<form method="POST" actions="">
+	<p><input type="submit" value="I Think I've Found It!" /></p>
+	</form>
+      </div>
+    </div>
+  </div>
+{% endblock container %}
