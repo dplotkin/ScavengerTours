@@ -43,14 +43,14 @@ function initialize() {
 	geocoder.geocode( { 'address': listOfCities[i]}, function(results, status) {
 	    if (status == google.maps.GeocoderStatus.OK) {   
 		position = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
-		marker =  new google.maps.Marker({position: position, map:map});
-		           google.maps.event.addListener(marker, 'click', function() {
-    	var city = "<p> You have selected <a> " + marker.getPosition() +"</a>!</p>";
+		       marker =  new google.maps.Marker({position: position, map:map});
+		       google.maps.event.addListener(marker, 'click', function() {
+    		       var city = "<p> You have selected <a> " + this.position  +"</a>!</p>";
 	$("#selected-city").html(city);
     });
 
 	    } else {
-		alert("Something is wrong " + status);
+		       alert("Something is wrong " + status);
 	    }
 	});
     }
