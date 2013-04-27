@@ -87,7 +87,7 @@ def city(city):
         for tour in tours:
             img = db.getTour(tour)[0][8]
             images.append(img)
-        return render_template('city.html', city = city, tours = tours, images = images, points)
+        return render_template('city.html', city = city, tours = tours, images = images, points = points)
     else:
         return redirect(url_for("index"))
 
