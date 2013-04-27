@@ -37,26 +37,34 @@ function initialize() {
     
     
     
-    listOfCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada"];
+    listOfCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada","boston","boulder, colorado","rome"];
     var geocoder =  new google.maps.Geocoder();
     for(var i = 0; i < listOfCities.length; i++){
+	city = listOfCities[i];
 	geocoder.geocode( { 'address': listOfCities[i]}, function(results, status) {
 	    if (status == google.maps.GeocoderStatus.OK) {   
 		position = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
-		       marker =  new google.maps.Marker({position: position, map:map});
-		       google.maps.event.addListener(marker, 'click', function() {
-    		       var city = "<p> You have selected <a> " + this.position  +"</a>!</p>";
-	$("#selected-city").html(city);
-    });
-
+		
+		marker =  new google.maps.Marker({position: position, map:map});
+		google.maps.event.addListener(marker, 'click', function() {
+		    
+		    geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+			    alert(results[0].address_components[3].long_name);
+    }
+		    }); 
+    		    var city = "<p> You have selected <a> " + this.position  +"</a>!</p>";
+		    $("#selected-city").html(city);
+		});
+		
 	    } else {
-		       alert("Something is wrong " + status);
+		alert("Something is wrong " + status);
 	    }
 	});
     }
 }   
 </script>
-{% endblock maps %}
+    {% endblock maps %}
 {% block container %}
 <div id="map-canvas"></div>
 <div id="selected-city">
