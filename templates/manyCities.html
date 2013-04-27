@@ -36,10 +36,7 @@ function initialize() {
 			       mapOptions);
     
     
-    listOfCities = "{{ listOfCities }}";
-    for(var i = 0; i < listOfCities.length; i++)
-
-    console.log(listOfCities);
+    listOfCities =[ "{{ listOfCities[0] }}", "{{ listOfCities[1] }}" ];
     <!-- listOfTestCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada","boston","boulder, colorado","rome"]; -->
     var geocoder =  new google.maps.Geocoder();
     for(var i = 0; i < listOfCities.length; i++){
