@@ -2,6 +2,12 @@
 
 {% block container %}
 
-<h1 class="alt-heading">This page will have a map and you click a city and create a tour there.</h1>
+<form method="POST" action="">
+    <p>Title: <input type="text" name="title" size="15" /></p>
+    <p>Description: <input type="textarea" name="description" /></p>
+    <p>City: THIS IS WHERE A MAP GOES</p>
+    <p>Enter the url of an image for the thumbnail: <input type="text" name="image" size="30" /></p>
+  <p><input type="submit" value="Create" /></p>
+</form>
 
 {% endblock container %}

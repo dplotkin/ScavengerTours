@@ -52,8 +52,8 @@ def register():
 @app.route("/home")
 def home():
     global currentTour
-    return render_template('homepage.html', title="Welcome", currentTour = currentTour, user = getUser())
-# we need to access the username here (should be called name)
+    points = db.getUser(session["user"])[0][3]
+    return render_template('homepage.html', title="Welcome", currentTour = currentTour, user = getUser(), points = points)
 
 @app.route("/tours")
 def tours():
@@ -81,8 +81,7 @@ def touroverview(city, tour):
     if request.method == "POST":
         db.addCurrentTourtoUser(getUser(),tour)
         currentTour = tour
-        print db.getUser(getUser())
-        return redirect(url_for("index"))
+        return redirect(url_for("home"))
     return render_template('touroverview.html', city=city, tour=tour, description = description, image = image)
 
 @app.route("/google")

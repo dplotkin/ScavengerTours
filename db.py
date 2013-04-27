@@ -48,7 +48,6 @@ def addCurrentTourtoUser(username, title):
             db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"], "currenttour":title, "currenttourstatus":"Begin"})
 
 
-drop()
 addUser("swyetzner","38472")
 # addUser("sbabski","62398")
 # print getUserList()
@@ -56,7 +55,7 @@ addTour("New York Hipster Tour", "a hipster tour", ["Go here","Go there","Go bac
 addTour("New York Not Hipster Tour", "a not hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "img1")
 addTour("Washington Hipster Tour", "a hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "Washington D.C.", "img1")
 addCurrentTourtoUser("swyetzner","New York Hipster Tour")
-# print getUser("swyetzner")
+print getUser("swyetzner")
 # print getTour("New York Hipster Tour")
 # print getTourList("New York City")
 # print getCityList()
