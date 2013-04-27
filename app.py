@@ -81,7 +81,7 @@ def manyCities():
     listOfCities = db.getCityList()
     for city in listOfCities:
         city = str(city)
-    return render_template('manyCities.html',title="manyCities", listOfCities)
+    return render_template('manyCities.html',title="manyCities", listOfCities=listOfCities)
 
 @app.route("/<city>")
 def city(city):

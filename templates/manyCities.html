@@ -36,8 +36,9 @@ function initialize() {
 			       mapOptions);
     
     
-    
-    listOfCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada","boston","boulder, colorado","rome"];
+    listOfCities = "{{ listOfCities }}";
+    console.log(listOfCities);
+    <!-- listOfTestCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada","boston","boulder, colorado","rome"]; -->
     var geocoder =  new google.maps.Geocoder();
     for(var i = 0; i < listOfCities.length; i++){
 	city = listOfCities[i];
@@ -47,14 +48,15 @@ function initialize() {
 		
 		marker =  new google.maps.Marker({position: position, map:map});
 		google.maps.event.addListener(marker, 'click', function() {
-		    
+		    var city;
 		    geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
-			    alert(results[0].address_components[3].long_name);
-    }
+			    city = results[0].address_components[3].long_name;
+			    place = "<p> <b>You have selected <a> " + city  +"</a>!</b></p>";
+			    $("#selected-city").html(place);
+			}
 		    }); 
-    		    var city = "<p> You have selected <a> " + this.position  +"</a>!</p>";
-		    $("#selected-city").html(city);
+    		    
 		});
 		
 	    } else {
