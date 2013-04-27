@@ -78,7 +78,7 @@ def error():
 
 @app.route("/manyCities")
 def manyCities():
-    return render_template('manyCities.html')
+    return render_template('manyCities.html',title="manyCities")
 
 @app.route("/<city>")
 def city(city):

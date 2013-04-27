@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
     {% endblock style %}
+
+    {% block maps %}
+    {% endblock maps %}
   </head>
 
   <div class="body">
@@ -20,14 +23,14 @@
       <div class="row-fluid">
 	<div class="span12">
 	  <br><br>
-
+	  
 	  <!-- Hero unit for the welcome message and sign up -->
 	  <div class="hero-unit" style="margin-top:30px">
-
+	    
 	    <!-- This is a welcome message -->
 	    <h1>Welcome!</h1>
 	    <div class="row-fluid">
-	      <div class="span5" style="text-align:justify">
+	      <div class="span5">
 		<p>
 		  <br>
 		  Have you ever visited a city and felt that ordinary tourist handbooks and attractions did not do their job as thoroughly as expected?<br><br>
@@ -40,11 +43,11 @@
 		<iframe width="380" height="270" src="http://www.youtube.com/embed/TTd4dkeEvFU?rel=0" frameborder="0" allowfullscreen></iframe>
 	      </div>
 	      <!-- end welcome message -->
-
+	      
 	      <div class="span2">
-
+		
 		<!-- Sign in -->
-		<br><br><br>
+		<br><br><br>Google authentication will be here later!<br>
 		<a href="/login">Sign In</a><br>
 		<a href="/register">Sign Up</a>
 
