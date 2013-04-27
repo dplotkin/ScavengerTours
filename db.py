@@ -53,7 +53,7 @@ def __init__():
 # addUser("sbabski","62398")
 # print getUserList()
     addTour("New York Hipster Tour", "a hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "http://www.newyorkpersonalinjuryattorneyblog.com/wp-content/uploads/2010/06/NewYork.jpg")
-    addTour("New York Not Hipster Tour", "a not hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "img1")
+    addTour("New York Not Hipster Tour", "a not hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "New York City", "http://www.sfexaminer.com/files/blog_images/New%20York%20skyline_0.jpg")
     addTour("Washington Hipster Tour", "a hipster tour", ["Go here","Go there","Go back here"], ["stop being stupid","yes"], [5,4,3,2,1], 1231245.343, "this was bad",  "Washington D.C.", "img1")
     addCurrentTourtoUser("swyetzner","New York Hipster Tour")
     print getUser("swyetzner")
