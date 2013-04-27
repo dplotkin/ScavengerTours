@@ -51,14 +51,20 @@ def register():
 
 @app.route("/home")
 def home():
-    global currentTour
-    points = db.getUser(session["user"])[0][3]
-    return render_template('homepage.html', title="Welcome", currentTour = currentTour, user = getUser(), points = points)
+    if "user" in session:
+        global currentTour
+        points = db.getUser(session["user"])[0][3]
+        return render_template('homepage.html', title="Welcome", currentTour = currentTour, user = getUser(), points = points)
+    else:
+        return redirect(url_for("index"))
 
 @app.route("/tours")
 def tours():
-    cities = db.getCityList()
-    return render_template('tours.html', title="Choose a City", cities=cities)
+    if "user" in session:
+        cities = db.getCityList()
+        return render_template('tours.html', title="Choose a City", cities=cities)
+    else:
+        return redirect(url_for("index"))
 
 @app.route("/error")
 def error():
@@ -66,23 +72,29 @@ def error():
 
 @app.route("/<city>")
 def city(city):
-    tours = db.getTourList(city)
-    images = []
-    for tour in tours:
-        img = db.getTour(tour)[0][8]
-        images.append(img)
-    return render_template('city.html', city = city, tours = tours, images = images)
+    if "user" in session:
+        tours = db.getTourList(city)
+        images = []
+        for tour in tours:
+            img = db.getTour(tour)[0][8]
+            images.append(img)
+        return render_template('city.html', city = city, tours = tours, images = images)
+    else:
+        return redirect(url_for("index"))
 
 @app.route("/<city>/<tour>", methods=["GET","POST"])
 def touroverview(city, tour):
-    global currentTour
-    description = db.getTour(tour)[0][1]
-    image = db.getTour(tour)[0][8]
-    if request.method == "POST":
-        db.addCurrentTourtoUser(getUser(),tour)
-        currentTour = tour
-        return redirect(url_for("home"))
-    return render_template('touroverview.html', city=city, tour=tour, description = description, image = image)
+    if "user" in session:
+        global currentTour
+        description = db.getTour(tour)[0][1]
+        image = db.getTour(tour)[0][8]
+        if request.method == "POST":
+            db.addCurrentTourtoUser(getUser(),tour)
+            currentTour = tour
+            return redirect(url_for("home"))
+        return render_template('touroverview.html', city=city, tour=tour, description = description, image = image)
+    else:
+        return redirect(url_for("index"))
 
 @app.route("/google")
 def google():
