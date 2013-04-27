@@ -78,10 +78,7 @@ def error():
 
 @app.route("/manyCities")
 def manyCities():
-    cities = db.getCityList()
-    listOfCities = []
-    for city in cities:
-        listOfCities.append(str(city))
+    listOfCities = db.getCityList()
     return render_template('manyCities.html',title="manyCities", listOfCities = listOfCities)
 
 @app.route("/<city>")
