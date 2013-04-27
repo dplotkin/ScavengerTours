@@ -6,6 +6,8 @@ DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = "tom_waits_is_grits"
+global currentTour
+currentTour = "None"
 
 @app.route("/")
 def index():
@@ -48,8 +50,9 @@ def register():
 
 @app.route("/home")
 def home():
-    return render_template('homepage.html', title="Welcome")
-# we need to access the username here (should be called name)
+    global currentTour
+    points = db.getUser(session["user"])[0][3]
+    return render_template('homepage.html', title="Welcome", currentTour = currentTour, user = getUser(), points = points)
 
 @app.route("/tours")
 def tours():
@@ -65,18 +68,20 @@ def city(city):
     tours = db.getTourList(city)
     images = []
     for tour in tours:
-        image = db.getTour(tour)[0][8]
-        images.append(image)
+        img = db.getTour(tour)[0][8]
+        images.append(img)
     return render_template('city.html', city = city, tours = tours, images = images)
 
 @app.route("/<city>/<tour>", methods=["GET","POST"])
 def touroverview(city, tour):
+    global currentTour
     description = db.getTour(tour)[0][1]
+    image = db.getTour(tour)[0][8]
     if request.method == "POST":
         db.addCurrentTourtoUser(getUser(),tour)
-        print db.getUser(getUser())
-        return redirect(url_for("index"))
-    return render_template('touroverview.html', city=city, tour=tour, description = description)
+        currentTour = tour
+        return redirect(url_for("home"))
+    return render_template('touroverview.html', city=city, tour=tour, description = description, image = image)
 
 @app.route("/google")
 def google():
