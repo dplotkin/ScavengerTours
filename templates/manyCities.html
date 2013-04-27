@@ -7,12 +7,15 @@
  <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 90% }
+      #map-canvas { height: 80% }
       #selected-city {height:10%}
      
     </style>
 
 <div id="map-canvas"></div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
+
 
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXACwRsXh1G7jZUk4PE_oOqqM2lNEXduU&sensor=false">
@@ -41,39 +44,23 @@ function initialize() {
 	    if (status == google.maps.GeocoderStatus.OK) {   
 		position = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
 		marker =  new google.maps.Marker({position: position, map:map});
+		           google.maps.event.addListener(marker, 'click', function() {
+    	var city = "<p> You have selected <a> " + marker.getPosition() +"</a>!</p>";
+	$("#selected-city").html(city);
+    });
+
 	    } else {
-		alert("Something got wrong " + status);
+		alert("Something is wrong " + status);
 	    }
 	});
     }
-    <!-- google.maps.event.addListener(marker, 'click', function() { -->
-	
-    <!-- }); -->
-}
-
-
-				  
-				  
-				 }
-    
-      
-
-    
-    
-    
-
-    
-    </script>
-
-
-
+}   
+</script>
 {% endblock maps %}
-
-
 {% block container %}
 <div id="map-canvas"></div>
 <div id="selected-city">
-  <p>Please select a city!</p>
+  <p><b>Please select a city!</b></p>
 </div>
 
 {% endblock container %}
