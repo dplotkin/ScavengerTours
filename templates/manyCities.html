@@ -37,8 +37,8 @@ function initialize() {
     
     
     listOfCities =[ "{{ listOfCities[0] }}", "{{ listOfCities[1] }}" ];
-    <!-- listOfTestCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada","boston","boulder, colorado","rome"]; -->
-    var geocoder =  new google.maps.Geocoder();
+	<!-- listOfTestCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada","boston","boulder, colorado","rome"]; -->
+	var geocoder =  new google.maps.Geocoder();
     for(var i = 0; i < listOfCities.length; i++){
 	city = listOfCities[i];
 	geocoder.geocode( { 'address': listOfCities[i]}, function(results, status) {
@@ -51,7 +51,18 @@ function initialize() {
 		    geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 			    city = results[0].address_components[3].long_name;
-			    place = "<p> <h2>You have selected <a> " + city  +"</a>!</h2></p>";
+			    cityString= "/"+city;
+			    toParse = cityString.split(" ");
+			    cityString = "";
+			    for(var i = 0; i< toParse.length; i++){
+				cityString = cityString.concat(toParse[i]);
+				cityString = cityString.concat("%20");
+				
+			    }
+			    cityString = cityString.substring(0,cityString.length - 3);
+			    console.log(cityString);
+			    place = "<p> <h2>You have selected <a href=" + cityString + ">" +  city +  "</a>!</h2></p>";
+
 			    $("#selected-city").html(place);
 			}
 		    }); 
