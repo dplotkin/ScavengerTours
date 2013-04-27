@@ -123,7 +123,8 @@ def map():
 
 @app.route("/create")
 def create():
-    return render_template('create.html')
+    points = db.getUser(session["user"])[0][3]
+    return render_template('create.html', points = points, title = "Create")
 
 @app.route("/<city>/<tour>/<tour1>/<stage>", methods=["GET","POST"])
 def running(city, tour, tour1, stage):

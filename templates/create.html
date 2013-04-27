@@ -1,13 +1,33 @@
 {% extends "homepage.html" %}
 
 {% block container %}
+<div class="container-fluid">
+  <div class="row-fluid">
 
-<form method="POST" action="">
-    <p>Title: <input type="text" name="title" size="15" /></p>
-    <p>Description: <input type="textarea" name="description" /></p>
-    <p>City: THIS IS WHERE A MAP GOES</p>
-    <p>Enter the url of an image for the thumbnail: <input type="text" name="image" size="30" /></p>
-    <p><input type="submit" value="Create" /></p>
-</form>
+    <div class="span8">
+      <p>map here</p>
+    </div>
+
+    <div class="span4">
+      <div class="hero-unit" style="margin:20px">
+	<h4 class="alt-heading" style="font-size:43px">Create a Tour</h4>
+	<form method="POST" action="">
+	  <fieldset style="margin-top:25px">
+	    <p>Title: <input type="text" name="title" size="15" /></p>
+	    <p>Description:
+	      <a href="" data-toggle="tooltip" title="This info will tell users what your tour is about.">
+	      <textarea rows="3" name="description"></textarea></a>
+	    </p>
+	    <p>Image:
+<a href="" data-toggle="tooltip" title="Input the url of an image for the thumbnail.">
+  <input type="text" name="image" size="30" /></a>
+	    </p>
+	    <p><input type="submit" value="Create" class="btn btn-addtomobile"/></p>
+	  </fieldset>
+	</form>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock container %}
