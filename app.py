@@ -76,6 +76,10 @@ def tours():
 def error():
     return render_template('error.html')
 
+@app.route("/manyCities")
+def manyCities():
+    return render_template('manyCities.html',title="manyCities")
+
 @app.route("/<city>")
 def city(city):
     if city not in db.getCityList():

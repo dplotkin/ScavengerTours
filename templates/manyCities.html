@@ -1,0 +1,79 @@
+{% extends "homepage.html" %}
+
+{% block maps %}
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+
+
+ <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 90% }
+      #selected-city {height:10%}
+     
+    </style>
+
+<div id="map-canvas"></div>
+
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXACwRsXh1G7jZUk4PE_oOqqM2lNEXduU&sensor=false">
+</script>
+
+<script>
+    var map;
+google.maps.event.addDomListener(window, 'load', initialize);
+
+function initialize() {
+    
+    var mapOptions = {
+	center: new google.maps.LatLng(35.029996,-95.273437),
+	zoom: 4,
+	mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map  = new google.maps.Map(document.getElementById("map-canvas"),
+			       mapOptions);
+    
+    
+    
+    listOfCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada"];
+    var geocoder =  new google.maps.Geocoder();
+    for(var i = 0; i < listOfCities.length; i++){
+	geocoder.geocode( { 'address': listOfCities[i]}, function(results, status) {
+	    if (status == google.maps.GeocoderStatus.OK) {   
+		position = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+		marker =  new google.maps.Marker({position: position, map:map});
+	    } else {
+		alert("Something got wrong " + status);
+	    }
+	});
+    }
+    <!-- google.maps.event.addListener(marker, 'click', function() { -->
+	
+    <!-- }); -->
+}
+
+
+				  
+				  
+				 }
+    
+      
+
+    
+    
+    
+
+    
+    </script>
+
+
+
+{% endblock maps %}
+
+
+{% block container %}
+<div id="map-canvas"></div>
+<div id="selected-city">
+  <p>Please select a city!</p>
+</div>
+
+{% endblock container %}

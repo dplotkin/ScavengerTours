@@ -19,9 +19,9 @@
 	  <div class="hero-unit special">
 	    <h2 class="alt-heading">Ongoing Tours</h2>
 	    {% if currentTour != "None" %}
-	    {{ currentTour }}
+	    <h3>{{ currentTour }}</h3>
 	    {% else %}
-	    Oh no! You aren't taking any tours right now!
+	    <h3>Oh no! You aren't taking any tours right now!</h3>
 	    {% endif %}
 	  </div>
 	</div>
@@ -67,11 +67,12 @@
 .com">Subtle Patterns</a>
 	</div>
 	<div class="span3">
-	  Your score: {{ points }}<br>
+	  <i class="icon-trophy"></i> Your score: {{ points }}<br>
+	  <a href="https://github.com/stuycs-softdev/ScavengerTours"><i class="icon-github-sign"></i></a> View project code
 	</div>
 	<div class="span3">
-	  <a href="/home">Back to Home</a><br>
-	  <a href="/logout">Sign Out</a>
+	  <a href="/home"><i class="icon-home"></i> Back to Home</a><br>
+	  <a href="/logout"><i class="icon-signout"></i> Sign Out</a>
 	</div>
       </div>
     </div>

@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
     {% endblock style %}
+
+    {% block maps %}
+    {% endblock maps %}
   </head>
 
   <div class="body">
@@ -20,14 +23,14 @@
       <div class="row-fluid">
 	<div class="span12">
 	  <br><br>
-
+	  
 	  <!-- Hero unit for the welcome message and sign up -->
 	  <div class="hero-unit" style="margin-top:30px">
-
+	    
 	    <!-- This is a welcome message -->
 	    <h1>Welcome!</h1>
 	    <div class="row-fluid">
-	      <div class="span5" style="text-align:justify">
+	      <div class="span5">
 		<p>
 		  <br>
 		  Have you ever visited a city and felt that ordinary tourist handbooks and attractions did not do their job as thoroughly as expected?<br><br>
@@ -35,18 +38,21 @@
 		  Any user can create their own ScavengerTours and share it, allowing others to go on a scavenger hunt around a city, using clues to guide them to new sites, whether they are a first-time tourist or have lived there all their life.
 		</p>
 	      </div>
-	      <div class="span5" style="margin: 50px -20px 0px 30px">
-		<p>Watch our introductory video:</p><br>
+	      <div class="span5" style="margin: 0px -40px 0px 60px">
+		<br>Watch our introductory video:<br><br>
 		<iframe width="380" height="270" src="http://www.youtube.com/embed/TTd4dkeEvFU?rel=0" frameborder="0" allowfullscreen></iframe>
 	      </div>
 	      <!-- end welcome message -->
-
+	      
 	      <div class="span2">
-
+		
 		<!-- Sign in -->
-		<br><br><br>
-		<a href="/login">Sign In</a><br>
-		<a href="/register">Sign Up</a>
+		<br><br><br><br>
+		<h3 style="text-align:center">Get Started!</h3>
+		<p style="text-align:center">
+		  <a href="/register"><i class="icon-plus-sign"></i> Sign Up</a><br>
+		  <a href="/login"><i class="icon-signin"></i> Sign In</a>
+		</p>
 
 	      </div>	      
 	    </div>
@@ -64,11 +70,14 @@
 	  Grits McGrits 2013<br>
 	  Pattern courtesy of <a href="http://www.subtlepatterns.com">Subtle Patterns</a>
 	</div>
+	<div class="span3">
+	  <br>
+	  <a href="https://github.com/stuycs-softdev/ScavengerTours"><i class="icon-github-sign"></i></a> View project code
 	</div>
       </div>
     </div>
     {% endblock footer %}
   
-  </div>
+</div>
 </html>
 
