@@ -74,7 +74,7 @@ def tours():
 
 @app.route("/error")
 def error():
-    return render_template('error.html')
+    return render_template('error.html', title = "Whoops.")
 
 @app.route("/manyCities")
 def manyCities():
@@ -125,6 +125,11 @@ def map():
 def create():
     points = db.getUser(session["user"])[0][3]
     return render_template('create.html', points = points, title = "Create")
+
+@app.route("/make")
+def make():
+    points = db.getUser(session["user"])[0][3]
+    return render_template('maketour.html', points = points, title = "Create")
 
 @app.route("/<city>/<tour>/<tour1>/<stage>", methods=["GET","POST"])
 def running(city, tour, tour1, stage):
