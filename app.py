@@ -52,7 +52,7 @@ def register():
 @app.route("/home")
 def home():
     global currentTour
-    return render_template('homepage.html', title="Welcome", currentTour = currentTour)
+    return render_template('homepage.html', title="Welcome", currentTour = currentTour, user = getUser())
 # we need to access the username here (should be called name)
 
 @app.route("/tours")
@@ -67,7 +67,11 @@ def error():
 @app.route("/<city>")
 def city(city):
     tours = db.getTourList(city)
-    return render_template('city.html', city = city, tours = tours)
+    images = []
+    for tour in tours:
+        img = db.getTour(tour)[0][8]
+        images.append(img)
+    return render_template('city.html', city = city, tours = tours, images = images)
 
 @app.route("/<city>/<tour>", methods=["GET","POST"])
 def touroverview(city, tour):

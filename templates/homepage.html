@@ -7,7 +7,7 @@
     <br><br>
     <div class="container-fluid">
       <div class="container special">
-	<h1 class="headingtwo">Hello, {{ name }}!</h1>
+	<h1 class="headingtwo">Hello, {{ user }}!</h1>
       </div>
       <div class="row-fluid">
 
@@ -19,11 +19,10 @@
 	  </div>
 	  <div class="hero-unit special">
 	    <h2 class="alt-heading">Ongoing Tours</h2>
-	    {% if currentTour == "None" %}
-	    This box contains the tours you've saved from Select a Tour and are currently on your mobile device.
-	    {% endif %}
 	    {% if currentTour != "None" %}
 	    {{ currentTour }}
+	    {% else %}
+	    This box contains the tours you've saved from Select a Tour and are currently on your mobile device.
 	    {% endif %}
 	  </div>
 	</div>

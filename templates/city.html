@@ -12,6 +12,7 @@
 	{% for tour in tours %}
 	<div class="span6">
 	  <div class="hero-unit">
+	    <img src="{{ city }}/{{ tour }}/{{ images[loop.index] }}" />
 	    <p><a href="/{{ city }}/{{ tour }}"><h3>{{ tour }}</h3></a></p>
 	  </div>
 	</div>
