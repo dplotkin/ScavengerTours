@@ -45,6 +45,13 @@ body {
     letter-spacing: -1px;
 }
 
+.alt-heading-two {
+    font-size: 45px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-left:-10px;
+}
 
 .headingtwo {
     font-size: 70px;
