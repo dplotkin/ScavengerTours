@@ -1,5 +1,4 @@
 from flask import Flask, render_template, session, url_for, request, redirect
-from flask import render_template
 import db
 
 DEBUG = True
@@ -64,7 +63,11 @@ def error():
 @app.route("/<city>")
 def city(city):
     tours = db.getTourList(city)
-    return render_template('city.html', city = city, tours = tours)
+    images = []
+    for tour in tours:
+        image = db.getTour(tour)[0][8]
+        images.append(image)
+    return render_template('city.html', city = city, tours = tours, images = images)
 
 @app.route("/<city>/<tour>", methods=["GET","POST"])
 def touroverview(city, tour):

@@ -1,4 +1,4 @@
-{% extends "homepage.html" %}
+ {% extends "homepage.html" %}
 {% block container %}
 
   <div class="body">
@@ -12,6 +12,7 @@
 	{% for tour in tours %}
 	<div class="span6">
 	  <div class="hero-unit">
+	    <img src="{{ images }}" />
 	    <p><a href="/{{ city }}/{{ tour }}"><h3>{{ tour }}</h3></a></p>
 	  </div>
 	</div>
@@ -19,3 +20,5 @@
       </div>
     </div>
 {% endblock container %}
+
+{% set variab = tours.length %}
