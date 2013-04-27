@@ -78,7 +78,6 @@ def error():
 
 @app.route("/manyCities")
 def manyCities():
-
     cities = db.getCityList()
     listOfCities = []
     for city in cities:
