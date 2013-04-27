@@ -64,7 +64,7 @@ def addPoints(username):
         if user["username"] == username:
             db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"]+15, "currenttour":user["currenttour"], "currenttourstatus":user["currenttourstatus"]})
 
-#def __int__():
+def __int__():
     addUser("swyetzner","38472")
 # addUser("sbabski","62398")
 # print getUserList()
