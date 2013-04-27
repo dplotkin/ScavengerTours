@@ -1,5 +1,4 @@
 from flask import Flask, render_template, session, url_for, request, redirect
-from flask import render_template
 import db
 
 DEBUG = True
