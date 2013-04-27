@@ -121,7 +121,8 @@ def map():
 
 @app.route("/create")
 def create():
-    return render_template('create.html')
+    points = db.getUser(session["user"])[0][3]
+    return render_template('create.html', points = points, title = "Create")
 
 if __name__ == "__main__":
     app.debug=True
