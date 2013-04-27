@@ -1,4 +1,5 @@
 from flask import Flask, render_template, session, url_for, request, redirect
+from flask import render_template
 import db
 
 DEBUG = True
@@ -71,6 +72,8 @@ def error():
 
 @app.route("/<city>")
 def city(city):
+    if city not in db.getCityList():
+        return redirect(url_for("error"))
     if "user" in session:
         tours = db.getTourList(city)
         images = []
