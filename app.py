@@ -77,12 +77,13 @@ def city(city):
 def touroverview(city, tour):
     global currentTour
     description = db.getTour(tour)[0][1]
+    image = db.getTour(tour)[0][8]
     if request.method == "POST":
         db.addCurrentTourtoUser(getUser(),tour)
         currentTour = tour
         print db.getUser(getUser())
         return redirect(url_for("index"))
-    return render_template('touroverview.html', city=city, tour=tour, description = description)
+    return render_template('touroverview.html', city=city, tour=tour, description = description, image = image)
 
 @app.route("/google")
 def google():
