@@ -57,6 +57,7 @@ def home():
     if "user" in session:
         global currentTour
         points = db.getUser(session["user"])[0][3]
+        currentTour = db.getUser(session["user"])[0][4]
         print geturl()
         return render_template('homepage.html', title="Welcome", currentTour = currentTour, user = getUser(), points = points)
     else:
