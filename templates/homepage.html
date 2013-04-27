@@ -12,12 +12,12 @@
 
 	<!-- Your Tours -->
 	<div class="span5">
-	  <div class="hero-unit special">
-	    <h2 class="alt-heading">Your Tours</h2>
-	    This will be located on the side and will list the tours you've made, ideally in a box through which you scroll. Which means we need a method in app.py to get a certain user's tours.
+	  <div class="hero-unit special" style="margin-top:190px">
+	    <h2 class="alt-heading">Your Score</h2>
+	    <h2><i class="icon-trophy"></i>: {{ points }}</h2>
 	  </div>
 	  <div class="hero-unit special">
-	    <h2 class="alt-heading">Ongoing Tours</h2>
+	    <h2 class="alt-heading">Ongoing Tour</h2>
 	    {% if currentTour != "None" %}
 	    <h3>{{ currentTour }}</h3>
 	    {% else %}
