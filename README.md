@@ -1,5 +1,6 @@
 ScavengerTours
 ==============
+<img src="/static/img/scavengertourslogo.png" alt="logo">
 
 <ul>
   <li>Group Members: Sarah Babski, Claire Hripcsak, Denis Plotkin, Sofia Wyetzner</li>
