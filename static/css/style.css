@@ -82,3 +82,14 @@ body {
     padding: 2px 40px;
     margin: 0 auto -5px;
 }
+
+.control-label {
+    font-size: 19px;
+}
+
+.img-createtour {
+    border: 1px solid #6d6d6d;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin-right: 20px;
+}
