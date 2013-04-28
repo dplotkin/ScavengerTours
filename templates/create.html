@@ -5,7 +5,7 @@
 <style type="text/css">
   html { height: 100% }
   body { height: 100%; margin: 0; padding: 0 }
-  #map-canvas { width: 50%; height:70%; float:left; }
+  #map-canvas { margin:20px 40px; width: 50%; height:85%; float:left; }
 </style>
 <div id="map-canvas"></div>
 <script type="text/javascript"
@@ -41,9 +41,9 @@
 {% endblock maps %}
 
 {% block container %}
-<div class="hero-unit pull-right" style="margin:20px;width:30%">
+<div class="hero-unit pull-right" style="margin:40px 35px;width:30%;">
   <h4 class="alt-heading-two">Create a Tour</h4>
-  <form method="POST" action="" class="form-horizontal" style="margin-top:25px">
+  <form method="POST" action="" class="form-horizontal" style="margin:25px -30px">
     <div class="control-group">
       <label class="control-label" for="title">Title: </label>
       <div class="controls">
@@ -65,18 +65,30 @@
     <div class="control-group">
       <label class="control-label" for="selectedCity">City: </label>
       <div class="controls">
-	<input> None (gonna fix that later)</input>
-	<input type="submit" value="Create" class="btn btn-addtomobile"/>
+	<span title="Search for a city in the box below." class="uneditable-input"> None</span><br>
       </div>
     </div>
   </form>
 </div>
-</div>
 
-<div class="hero-unit pull-right">
-  <form>
-    <input type="text" name="city" title="Search for your city" size="30" />
-    <input type="submit" value="search" />
+<span>
+<div class="pull-left" style="margin:60px 60px;width:20%;">
+
+<!-- This search form takes what you type and puts it in the url above, but I dunno if it will actually help with the map or whatever. I just put it in because it was called 'search'. But if it doesn't work, just replace the below code with this: -->
+<!-- <form> -->
+<!--   <div class="input-prepend"> -->
+<!--     <input type="submit" value="Search" class="btn"></input> -->
+<!--     <input type="text" name="city" title="Search for your city"> -->
+<!--   </div> -->
+<!-- </form> -->
+
+  <form class="form-search">
+    <div class="input-prepend">
+      <input type="submit" value="Search" class="btn"></input>
+      <input type="text" name="city" title="Search for your city" class="search-query">
+    </div>
   </form>
 </div>
+<input type="submit" value="Create" class="btn btn-large btn-addtomobile" style="margin:50px;"/>
+</span>
 {% endblock container %}

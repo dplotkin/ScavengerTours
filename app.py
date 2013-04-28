@@ -22,15 +22,19 @@ def index():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    correct = 1
     if "user" in session:
         return redirect(url_for("index"))
     elif request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+        correct = 0
         if db.verify(username, password):
             session["user"] = username
             return redirect(url_for("index"))
-    return render_template("signin.html", title="Login")
+        else:
+            correct = 0
+    return render_template("signin.html", title="Login", correct=correct)
 
 @app.route("/logout")
 def logout():
@@ -151,7 +155,7 @@ def running(city, tour, tour1, stage):
         print db.getUser(getUser())[0][5]
         sstage = str(db.getUser(getUser())[0][5])
         return  redirect("/"+city+"/"+tour+"/"+tour1+"/"+sstage)
-    return render_template('runningtour.html', city=city, tour=tour, stage=newstage, clue = clue, stages = stages, latitude = latitude, longitude = longitude, points=points)
+    return render_template('runningtour.html', city=city, tour=tour, stage=newstage, clue = clue, stages = stages, latitude = latitude, longitude = longitude, points = points, title = tour)
 
 
 @app.route("/complete")
@@ -160,7 +164,7 @@ def complete():
         db.addPoints(getUser())
         points = db.getUser(session["user"])[0][3]
         db.addCurrentTourtoUser(getUser(),"None")
-        return render_template("complete.html")
+        return render_template("complete.html", points=points)
     return redirect(url_for("index"))
 
 if __name__ == "__main__":

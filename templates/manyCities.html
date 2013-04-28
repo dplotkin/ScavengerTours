@@ -8,7 +8,7 @@
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
       #map-canvas { margin:20px 40px;height: 75% }
-      #selected-city {height:10%}
+      #selected-city {height:10%; margin-top:-30px}
      
     </style>
 
@@ -61,7 +61,7 @@ function initialize() {
 			    }
 			    cityString = cityString.substring(0,cityString.length - 3);
 			    console.log(cityString);
-			    place = "<p> <h2>You have selected <a href=" + cityString + ">" +  city +  "</a>!</h2></p>";
+			    place = "<p> <h2 class=\"alt-heading\">You have selected <a href=" + cityString + ">" +  city +  "</a>!</h2></p>";
 
 			    $("#selected-city").html(place);
 			}
@@ -80,7 +80,7 @@ function initialize() {
 {% block container %}
 <div id="map-canvas"></div>
 <div class="container special" id="selected-city">
-  <h1 class="alt-heading">Please select a city!</h1>
+<h1 class="alt-heading">Please select a city!</h1>
 </div>
 
 {% endblock container %}
