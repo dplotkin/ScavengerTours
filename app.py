@@ -125,21 +125,28 @@ def create():
 @app.route("/<city>/<tour>/<tour1>/<stage>", methods=["GET","POST"])
 def running(city, tour, tour1, stage):
     newstage = db.getUser(getUser())[0][5]
+    points = db.getUser(session["user"])[0][3]
+    print newstage
     stages = len(db.getTour(tour)[0][2]) - 1
     if newstage == "Begin":
         newstage = 0
+    if int(newstage) == stages + 1:
+        newstage = "End"
     if newstage == "End":
-        return redirect("complete")
-    if newstage > stages:
         return redirect("complete")
     newstage = int(newstage)
     clue = db.getTour(tour)[0][2][newstage]
+    latitude = db.getTour(tour)[0][5][newstage][0]
+    print latitude
+    longitude = db.getTour(tour)[0][5][newstage][1]
     # hint = db.getTour(tour)[0][3][newstage]
+    print db.getUser(getUser())[0][5]
     if request.method == "POST":
         db.goToNextStage(getUser(),tour)
+        print db.getUser(getUser())[0][5]
         sstage = str(db.getUser(getUser())[0][5])
         return  redirect("/"+city+"/"+tour+"/"+tour1+"/"+sstage)
-    return render_template('runningtour.html', city=city, tour=tour, stage=newstage, clue = clue, stages = stages)
+    return render_template('runningtour.html', city=city, tour=tour, stage=newstage, clue = clue, stages = stages, latitude = latitude, longitude = longitude, points=points)
 
 
 @app.route("/complete")
