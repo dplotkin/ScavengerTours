@@ -5,9 +5,9 @@
 <style type="text/css">
   html { height: 100% }
   body { height: 100%; margin: 0; padding: 0 }
-  #map-canvas { width: 50%; height:100%; float:left; }
+  #map-canvas { width: 50%; height:70%; float:left; }
 </style>
-<div id="map-canvas">jwpefo</div>
+<div id="map-canvas"></div>
 <script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXACwRsXh1G7jZUk4PE_oOqqM2lNEXduU&sensor=false">
 </script>
@@ -32,6 +32,10 @@
       
 </script>
 
+<script type="text/javascript">
+</script>
+  
+
 
 
 {% endblock maps %}
@@ -50,9 +54,17 @@
 	<a href="" data-toggle="tooltip" title="Input the url of an image for the thumbnail.">
 	  <input type="text" name="image" size="30" /></a>
       </p>
+      <p id="selectedCity">City: None </p>
       <p><input type="submit" value="Create" class="btn btn-addtomobile"/></p>
     </fieldset>
   </form>
 </div>
+</div>
+
+<div class="hero-unit pull-right">
+  <form>
+    <input type="text" name="city" title="Search for your city" size="30" />
+    <input type="submit" value="search" />
+  </form>
 </div>
 {% endblock container %}
