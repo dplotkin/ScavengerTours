@@ -6,14 +6,30 @@
   <div class="container special">
     <h1 class="headingtwo">{{ tour }}</h1>
   </div>
-  
-  <div class="hero-unit">
-    <h3>Clue:</h3>
-    <p>{{ clue }}</p>
-    <p id="demo">Click the button to get your coordinates:</p>
-<button onclick="getLocation()" class="btn">I Think I've Found it!</button>
+
+  <!-- Clue -->
+  <div class="row-fluid">
+    <div class="span6">  
+      <div class="container" style="margin:70px 220px">
+	<h2>Clue:</h2>
+	<p style="font-size:18px">{{ clue }}</p>
+      </div>
+    </div>
+
+    <!-- Check Location + Hint -->
+    <div class="span6">
+      <div class="hero-unit" style="margin-top:70px">
+	<h3>Click the button to get your coordinates:</h3>
+	<p id="demo"></p><br>
+	<button onclick="getLocation()" class="btn" type="button">
+	  <i class="icon-lightbulb icon-2x pull-left"></i><b>I Think I've<br>Found it!</b>
+	</button>
+      </div>
+    </div>
   </div>
 
+
+  <!-- Progress bar -->
   <div class="progress progress-info special" style="width:60%;margin:20px auto">
     <div class="bar" style="width:{{ (stage+1)/(stages+1)*100 }}%;">
     </div>
@@ -21,6 +37,8 @@
   <h1 class="alt-heading special" style="font-size:25px">
     Stage: {{ stage+1 }}/{{ stages+1 }}
   </h1>
+  <div style="margin:100px">
+  </div>
 </div>
 
 <script>
@@ -40,11 +58,10 @@ var distance = Math.sqrt(((Math.abs(position.coords.latitude)-Math.abs({{ latitu
 console.log(distance);
 radius = 1/1200
 if(distance < radius){
-	      x.innerHTML="<form method='POST' actions=''><p><input class='btn btn-warning' type='submit' value='Correct! -- Next' /></p></form>";
-
+	      x.innerHTML="<form method='POST' actions=''><p><button class='btn btn-info' type='submit' style='padding-top:15px'><i class='icon-ok icon-4x pull-right'></i><span style='font-size:25px;'>Correct!</span><br><span style='font-size:18px'>Next</span></button></p></form>";
 }
 else{
-	      x.innerHTML="You're not there. Try again";
+	      x.innerHTML="<div class=\"alert alert-error\" style=\"width:220px;padding:2px 10px;\">You're not there. Try again.</div>";
 }
 }
 function showPosition(position)
