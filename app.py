@@ -7,8 +7,10 @@ DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = "tom_waits_is_grits"
-global currentTour, istage
+global currentTour, istage, currentCity, currentStage
 currentTour = "None"
+currentCity = "None"
+currentStage = "None"
 
 @app.route("/")
 def index():
@@ -55,11 +57,14 @@ def register():
 @app.route("/home")
 def home():
     if "user" in session:
-        global currentTour
+        global currentTour, currentCity, currentStage
         points = db.getUser(session["user"])[0][3]
         currentTour = db.getUser(session["user"])[0][4]
+        if currentTour != "None":
+            currentCity = db.getTour(currentTour)[0][7]
+            currentStage = db.getUser(session["user"])[0][5]
         print geturl()
-        return render_template('homepage.html', title="Welcome", currentTour = currentTour, user = getUser(), points = points)
+        return render_template('homepage.html', title="Welcome", currentTour = currentTour, user = getUser(), points = points, currentCity = currentCity, currentStage = currentStage)
     else:
         return redirect(url_for("index"))
 
