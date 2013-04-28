@@ -1,0 +1,47 @@
+{% extends "homepage.html" %}
+{% block container %}
+
+
+  <div class="body">
+    <div class="container-fluid">
+      <h1>Stage: {{ stage + 1 }}/{{ stages + 1 }}</h1>
+      <div class="hero-unit">
+	<h3>Clue:</h3>
+	<p>{{ clue }}</p>
+	<p id="demo">Click the button to get your coordinates:</p>
+<button onclick="getLocation()" class="btn">I Think I've Found it!</button>
+      </div>
+    </div>
+  </div>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(parsePosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function parsePosition(position)
+{
+var distance = Math.sqrt(((Math.abs(position.coords.latitude)-Math.abs({{ latitude }}))*(Math.abs(position.coords.latitude)-Math.abs({{ latitude }}))) + ((Math.abs(position.coords.longitude) - Math.abs({{ longitude }}))*(Math.abs(position.coords.longitude) - Math.abs({{ longitude }}))));
+
+console.log(distance);
+radius = 1/1200
+if(distance < radius){
+	      x.innerHTML="<form method='POST' actions=''><p><input class='btn btn-warning' type='submit' value='Correct! -- Next' /></p></form>";
+
+}
+else{
+	      x.innerHTML="You're not there. Try again";
+}
+}
+function showPosition(position)
+
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude; 
+  }
+</script>
+{% endblock container %}
