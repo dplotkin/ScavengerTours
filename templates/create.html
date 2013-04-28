@@ -1,11 +1,47 @@
 {% extends "homepage.html" %}
 
+{% block maps %}
+ <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 50% }
+    </style>
+
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXACwRsXh1G7jZUk4PE_oOqqM2lNEXduU&sensor=false">
+    </script>
+    <!-- <script src="/static/js/jquery.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
+<script type="text/javascript">
+      var map;
+      var listOfLatLng = [];
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+      function initialize() {
+ 
+      var mapOptions = {
+      center: new google.maps.LatLng(35.029996,-95.273437),
+      zoom: 4,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map  = new google.maps.Map(document.getElementById("map-canvas"),
+      mapOptions);
+     }
+      
+</script>
+
+
+
+{% endblock maps %}
+
 {% block container %}
 <div class="container-fluid">
   <div class="row-fluid">
 
     <div class="span8">
-      <p>map here</p>
+      <div id="map-canvas"></div>
     </div>
 
     <div class="span4">
