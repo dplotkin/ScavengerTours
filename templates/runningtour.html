@@ -1,18 +1,28 @@
 {% extends "homepage.html" %}
 {% block container %}
 
-
-  <div class="body">
-    <div class="container-fluid">
-      <h1>Stage: {{ stage + 1 }}/{{ stages + 1 }}</h1>
-      <div class="hero-unit">
-	<h3>Clue:</h3>
-	<p>{{ clue }}</p>
-	<p id="demo">Click the button to get your coordinates:</p>
+<div class="container-fluid">
+  <br><br>
+  <div class="container special">
+    <h1 class="headingtwo">{{ tour }}</h1>
+  </div>
+  
+  <div class="hero-unit">
+    <h3>Clue:</h3>
+    <p>{{ clue }}</p>
+    <p id="demo">Click the button to get your coordinates:</p>
 <button onclick="getLocation()" class="btn">I Think I've Found it!</button>
-      </div>
+  </div>
+
+  <div class="progress progress-info special" style="width:60%;margin:20px auto">
+    <div class="bar" style="width:{{ (stage+1)/(stages+1)*100 }}%;">
     </div>
   </div>
+  <h1 class="alt-heading special" style="font-size:25px">
+    Stage: {{ stage+1 }}/{{ stages+1 }}
+  </h1>
+</div>
+
 <script>
 var x=document.getElementById("demo");
 function getLocation()

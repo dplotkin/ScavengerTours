@@ -155,7 +155,7 @@ def running(city, tour, tour1, stage):
         print db.getUser(getUser())[0][5]
         sstage = str(db.getUser(getUser())[0][5])
         return  redirect("/"+city+"/"+tour+"/"+tour1+"/"+sstage)
-    return render_template('runningtour.html', city=city, tour=tour, stage=newstage, clue = clue, stages = stages, latitude = latitude, longitude = longitude, points=points)
+    return render_template('runningtour.html', city=city, tour=tour, stage=newstage, clue = clue, stages = stages, latitude = latitude, longitude = longitude, points = points, title = tour)
 
 
 @app.route("/complete")
@@ -164,7 +164,7 @@ def complete():
         db.addPoints(getUser())
         points = db.getUser(session["user"])[0][3]
         db.addCurrentTourtoUser(getUser(),"None")
-        return render_template("complete.html")
+        return render_template("complete.html", points=points)
     return redirect(url_for("index"))
 
 if __name__ == "__main__":
