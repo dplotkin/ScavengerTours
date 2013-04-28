@@ -43,20 +43,32 @@
 {% block container %}
 <div class="hero-unit pull-right" style="margin:20px;width:30%">
   <h4 class="alt-heading-two">Create a Tour</h4>
-  <form method="POST" action="">
-    <fieldset style="margin-top:25px">
-      <p>Title: <input type="text" name="title" size="15" /></p>
-      <p>Description:
-	<a href="" data-toggle="tooltip" title="This info will tell users what your tour is about.">
-	  <textarea rows="3" name="description"></textarea></a>
-      </p>
-      <p>Image:
-	<a href="" data-toggle="tooltip" title="Input the url of an image for the thumbnail.">
-	  <input type="text" name="image" size="30" /></a>
-      </p>
-      <p id="selectedCity">City: None </p>
-      <p><input type="submit" value="Create" class="btn btn-addtomobile"/></p>
-    </fieldset>
+  <form method="POST" action="" class="form-horizontal" style="margin-top:25px">
+    <div class="control-group">
+      <label class="control-label" for="title">Title: </label>
+      <div class="controls">
+	<input type="text" id="title" size="15" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="description">Description: </label>
+      <div class="controls">
+	<textarea title="This info will tell users what your tour is about." rows="3" id="description"></textarea>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="image">Image: </label>
+      <div class="controls">
+	<input title="Input the url of an image for the thumbnail." type="text" id="image" size="30" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="selectedCity">City: </label>
+      <div class="controls">
+	<input> None (gonna fix that later)</input>
+	<input type="submit" value="Create" class="btn btn-addtomobile"/>
+      </div>
+    </div>
   </form>
 </div>
 </div>
