@@ -7,10 +7,10 @@ DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = "tom_waits_is_grits"
-global currentTour, istage, currentCity, currentStage
-currentTour = "None"
-currentCity = "None"
-currentStage = "None"
+# global currentTour, istage, currentCity, currentStage
+# currentTour = "None"
+# currentCity = "None"
+# currentStage = "None"
 
 @app.route("/")
 def index():
@@ -61,7 +61,8 @@ def register():
 @app.route("/home")
 def home():
     if "user" in session:
-        global currentTour, currentCity, currentStage
+        currentStage = "None"
+        currentCity = "None"
         points = db.getUser(session["user"])[0][3]
         currentTour = db.getUser(session["user"])[0][4]
         if currentTour != "None":
@@ -104,13 +105,11 @@ def city(city):
 @app.route("/<city>/<tour>", methods=["GET","POST"])
 def touroverview(city, tour):
     if "user" in session:
-        global currentTour
         description = db.getTour(tour)[0][1]
         points = db.getUser(session["user"])[0][3]
         image = db.getTour(tour)[0][8]
         if request.method == "POST":
             db.addCurrentTourtoUser(getUser(),tour)
-            currentTour = tour
             stage = str(db.getUser(getUser())[0][5])
             #return redirect(url_for("home"))
             return redirect("/"+city+"/"+tour+"/"+tour+"/"+stage)
