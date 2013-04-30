@@ -121,15 +121,40 @@ def google():
 def map():
     return render_template('map.html')
 
-@app.route("/create")
+@app.route("/create", methods=["GET","POST"])
 def create():
     city = ""
     points = db.getUser(session["user"])[0][3]
     cities = db.getCityList()
     if request.method == "POST":
-        city = request.form["city"]
-        print city
+        title = request.form["title"]
+        description = request.form["description"]
+        image = request.form["image"]
+        city = request.form["selectedCity"]
+        clues = []
+        hints = []
+        ratings = []
+        reviews = []
+        coordinates = []
+        db.addTour(title, description, clues, hints, ratings, reviews, coordinates, city, image)
+        return redirect("/"+title+"/create2/1")
     return render_template('create.html', cities = cities, points = points, title = "Create",city = city)
+
+@app.route("/<tour>/create2/<num>", methods=["GET","POST"])
+def create2(tour, num):
+    number = num
+    city = db.getTour(tour)[0][7]
+    if request.method == "POST":
+        if request.form.has_key("newness"):
+            clue = request.form["clue"]
+            hint = request.form["hint"]
+            coords = request.form["coords"]
+            print clue
+            db.addTourStop(tour, clue, hint, coords)
+            return redirect("/"+tour+"/create2/"+str(int(number) + 1))
+        else:
+            return redirect(url_for("home"))
+    return render_template('create2.html', tour = tour, number = number, city = city)
 
 @app.route("/<city>/<tour>/<tour1>/<stage>", methods=["GET","POST"])
 def running(city, tour, tour1, stage):
