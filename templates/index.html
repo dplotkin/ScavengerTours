@@ -3,7 +3,7 @@
   <head>
     <title>{% block title %}{{ title }}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="http://stuycs-ml7.github.com/img/thluffy.png">
+    <link rel="shortcut icon" href="/static/img/scavengertourlogo.png">
 
     <!-- Styles -->
     {% block style %}
@@ -50,7 +50,8 @@
 		<br><br><br><br>
 		<h3 style="text-align:center">Get Started!</h3>
 		<p style="text-align:center">
-		  <a href="/register"><i class="icon-plus-sign"></i> Sign Up</a><br>
+		  <a href="/register"><i class="icon-plus-sign"></i> Sign Up</a>
+		  <br>
 		  <a href="/login"><i class="icon-signin"></i> Sign In</a>
 		</p>
 
@@ -68,11 +69,14 @@
     <!-- Footer! -->
     <div class="footer">
       <div class="row-fluid">
-	<div class="span3">
-	  Grits McGrits 2013<br>
+	<div class="span1">
+	  <img src="/static/img/scavengertourlogo.png" width="50px">
+	</div>
+	<div class="span3" style="padding:10px">
+	  Grits McGrits · 2013<br>
 	  Pattern courtesy of <a href="http://www.subtlepatterns.com">Subtle Patterns</a>
 	</div>
-	<div class="span3">
+	<div class="span3" style="padding:10px">
 	  <br>
 	  <a href="https://github.com/stuycs-softdev/ScavengerTours"><i class="icon-github-sign"></i></a> View project code
 	</div>
