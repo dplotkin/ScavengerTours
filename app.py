@@ -149,8 +149,12 @@ def create2(tour, num):
             clue = request.form["clue"]
             hint = request.form["hint"]
             coords = request.form["coords"]
+            newco = coords.split(',')
+            lat = int(newco[0])
+            lng = int(newco[1])
+            newco = [lat,lng]
             print clue
-            db.addTourStop(tour, clue, hint, coords)
+            db.addTourStop(tour, clue, hint, newco)
             return redirect("/"+tour+"/create2/"+str(int(number) + 1))
         else:
             return redirect(url_for("home"))

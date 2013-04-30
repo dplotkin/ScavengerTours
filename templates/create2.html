@@ -49,7 +49,7 @@
 			if (status == google.maps.GeocoderStatus.OK) {
 			    citylat = results[0].geometry.location.lat();
      citylng = results[0].geometry.location.lng();
-     city = [citylat,citylng];
+     city = citylat + "," + citylng
      
 				console.log(city);
 			    }
