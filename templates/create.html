@@ -28,19 +28,44 @@
       };
       map  = new google.maps.Map(document.getElementById("map-canvas"),
       mapOptions);
-     }
-      
+      }
+
+ 
+ 
 </script>
 
 <script type="text/javascript">
-</script>
-  
-<script>
-   var city = {{ city }}
-   console.log(city);
+     var Search = function() {
 
+     	var geocoder =  new google.maps.Geocoder();
+	city1 = $('#search').val();
+      console.log(city1);
+	geocoder.geocode({'address': city1}, function(results, status) {
+	    if (status == google.maps.GeocoderStatus.OK) {   
+     console.log(status);
+		position = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+		console.log(position);
+		marker =  new google.maps.Marker({position: position, map:map});
 
+		    geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+			    city = results[0].address_components[3].long_name;
+				console.log(city);
+			    }
 
+			    place = city;
+
+			    $("#selectedCity").html(place);
+			}
+ 
+		    ) 
+    		    
+		
+	    } else {
+		alert("Something is wrong " + status);
+	    }
+	});
+};
 </script>
 
 
@@ -78,8 +103,8 @@
       <label class="control-label" for="citysearch">Search: </label>
       <div class="controls">
 	<div class="input-append" id="citysearch">
-	  <input type="text" class="span2" name="city" title="Search for your city."></input>
-	  <input type="submit" value="Go!" class="btn"></input>
+	  <input type="text" id="search" class="span2" name="city" title="Search for your city."></input>
+	  <input value="Go!" onclick="Search()" class="btn span1"></input>
 	</div>
 	<input type="submit" value="Create" class="btn btn-large btn-addtomobile" style="margin:50px;"/>
       </div>
