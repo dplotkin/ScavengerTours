@@ -21,6 +21,19 @@
 
       function initialize() {
  
+	 $('#city-btn').keypress(function(event){
+ 
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if(keycode == '13'){
+		alert('You pressed a "enter" key in textbox');	
+	}
+ 	     
+	 }); 
+	  $("#city-btn").click(function(){
+	      var city = $("#city-bar").val();
+ 	      console.log(city);
+	  });
+	  
       var mapOptions = {
       center: new google.maps.LatLng(35.029996,-95.273437),
       zoom: 4,
@@ -36,10 +49,7 @@
 </script>
   
 <script>
-   var city = {{ city }}
-   console.log(city);
-
-
+    
 
 </script>
 
@@ -47,8 +57,21 @@
 {% endblock maps %}
 
 {% block container %}
-<div class="hero-unit pull-right" style="margin:40px 35px;width:30%;">
+<!-- CHANGE THE HEIGHT OF THE UNIT -->
+<div class="hero-unit pull-right" style="margin:20px;width:30%;">
   <h4 class="alt-heading-two">Create a Tour</h4>
+  <div class="form-horizontal" style="margin:40px -30px 25px">
+  <div class="control-group">
+    <label class="control-label" for="citysearch">Search: </label>
+    <div class="controls">
+      <div class="input-append" id="citysearch">
+	<input type="text" id="city-bar" class="span2" name="city" title="Search for your city."></input>
+	<button type="button" value="Go!" class="btn" id="city-btn">Go!</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <hr>
   <form method="POST" action="" class="form-horizontal" style="margin:25px -30px">
     <div class="control-group">
       <label class="control-label" for="title">Title: </label>
@@ -72,21 +95,14 @@
       <label class="control-label" for="selectedCity">City: </label>
       <div class="controls">
 	<span title="Search for a city in the box below." id="selectedCity" class="uneditable-input"> None</span><br>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label" for="citysearch">Search: </label>
-      <div class="controls">
-	<div class="input-append" id="citysearch">
-	  <input type="text" class="span2" name="city" title="Search for your city."></input>
-	  <input type="submit" value="Go!" class="btn"></input>
-	</div>
 	<input type="submit" value="Create" class="btn btn-large btn-addtomobile" style="margin:50px;"/>
       </div>
     </div>
   </form>
-</div>
 
+  <div style="margin:200px">
+  </div>
+</div>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
 
