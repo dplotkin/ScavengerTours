@@ -11,13 +11,13 @@
   <!-- Clue -->
   <div class="row-fluid">
     <div class="span6">  
-      <div class="container" style="margin:70px 220px">
+      <div class="container" style="width:40%; margin-top:60px">
 	<h2>Clue:</h2>
-	<p style="font-size:18px">{{ clue }}</p>
+	<p style="font-size:18px">{{ clue }}</p><br>
 	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#hint">
-	 Help! I need a hint
+	 Help! I need a hint.
 	</button>
-	<div id="hint" class="collapse out"> <p>{{ hint }}</p></div>
+	<div id="hint" class="collapse out" style="font-size:16px"> <p style="margin:20px">{{ hint }}</p></div>
       </div>
     </div>
 
@@ -35,7 +35,6 @@
 
 
   <!-- Progress bar -->
-  <!-- MAKE THIS DIVIDED LATER INTO THIRDS OR WHATEVER -->
   <div class="progress progress-info special" style="width:60%;margin:20px auto">
     <div class="bar" style="width:{{ (stage)/(stages+1)*100 }}%;">
     </div>
