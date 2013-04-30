@@ -48,6 +48,23 @@ def addCurrentTourtoUser(username, title):
         if user["username"] == username:
             db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"], "currenttour":title, "currenttourstatus":"Begin"})
 
+def addTourStop(title, clue, hint, coordinates):
+    for tour in db.tours.find():
+        if tour["title"] == title:
+            tmpc = []
+            tmph = []
+            tmpco = []
+            for c in tour["clues"]:
+                tmpc.append(c)
+            for h in tour["hints"]:
+                tmph.append(h)
+            for co in tour["coordinates"]:
+                tmpco.append(co)
+            tmpc.append(clue)
+            tmph.append(hint)
+            tmpco.append(coordinates)
+            db.tours.update({"title":title},{"title":title, "description":tour["description"], "clues":tmpc, "hints":tmph, "ratings":tour["ratings"], "reviews":tour["reviews"], "coordinates":tmpco, "city": tour["city"], "image": tour["image"]})
+
 def goToNextStage(username, title):
     for user in db.users.find():
         if user["username"] == username:
@@ -79,6 +96,5 @@ def __init__():
     print getTour("New York Hipster Tour")
     # print getTourList("New York City")
 
-            
 print getCityList()                             
     
