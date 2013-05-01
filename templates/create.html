@@ -89,17 +89,6 @@
 <div class="hero-unit pull-right" style="margin:20px;width:30%;">
   <h4 class="alt-heading-two">Create a Tour</h4>
   <div class="form-horizontal" style="margin:40px -30px 25px">
-  <div class="control-group">
-    <label class="control-label" for="citysearch">Search: </label>
-    <div class="controls">
-      <div class="input-append" id="citysearch">
-	<input type="text" id="city-bar" class="span2" name="city" title="Search for your city."></input>
-	<button type="button" value="Go!" class="btn" id="city-btn">Go!</button>
-      </div>
-    </div>
-  </div>
-  </div>
-  <hr>
   <form method="POST" action="" class="form-horizontal" style="margin:25px -30px">
     <div class="control-group">
       <label class="control-label" for="title">Title: </label>
@@ -122,9 +111,6 @@
     <div class="control-group">
       <label class="control-label" for="selectedCity">City: </label>
       <div class="controls">
-<<<<<<< HEAD
-	<span title="Search for a city in the box below." id="selectedCity" class="uneditable-input"> None</span><br>
-=======
 	<input title="Search for a city in the box below." id="selectedCity" class="uneditable-input" /><br>
       </div>
     </div>
@@ -132,10 +118,12 @@
       <label class="control-label" for="citysearch">Search: </label>
       <div class="controls">
 	<div class="input-append" id="citysearch">
-	  <input type="text" id="search" class="span2" name="city" title="Search for your city."></input>
+
+      <div class="controls">
+	<div class="input-append" id="citysearch">
+	  <input type="text" id="search" class="span2 pull-left" name="city" title="Search for your city."></input>
 	  <input value="Go!" onclick="Search()" class="btn span1"></input>
 	</div>
->>>>>>> 226c91fad98ece46526e7e7fd815a93b070ff0a5
 	<input type="submit" value="Create" class="btn btn-large btn-addtomobile" style="margin:50px;"/>
       </div>
     </div>

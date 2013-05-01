@@ -18,7 +18,7 @@ def addUser(username, accesskey):
     db.users.insert({'username':username, 'accesskey':accesskey, 'tours':[], 'points':0, 'currenttour':"None", 'currenttourstatus':"None"})
 
 def getTour(title):
-    return [[x['title'], x['description'], x['clues'], x['hints'], x['ratings'], x['reviews'], x['coordinates'], x['city'], x['image']] for x in db.tours.find({'title':title})]
+    return [[x['title'], x['description'], x['clues'], x['hints'], x['ratings'], x['coordinates'], x['reviews'],  x['city'], x['image']] for x in db.tours.find({'title':title})]
 
 def getUser(username):
     return [[x['username'], x['accesskey'], x['tours'], x['points'], x['currenttour'], x['currenttourstatus']] for x in db.users.find({'username':username})]
