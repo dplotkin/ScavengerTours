@@ -34,22 +34,23 @@ function initialize() {
     };
     map  = new google.maps.Map(document.getElementById("map-canvas"),
 			       mapOptions);
-    
-    
-    listOfCities =[ "{{ listOfCities[0] }}", "{{ listOfCities[1] }}" ];
-	<!-- listOfTestCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada","boston","boulder, colorado","rome"]; -->
-	var geocoder =  new google.maps.Geocoder();
+    var listOfCities = [];
+    {% for city in listOfCities %}
+    listOfCities.push("{{ city }}");
+    {% endfor %}
+    <!-- listOfTestCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada","boston","boulder, colorado","rome"]; -->
+    var geocoder =  new google.maps.Geocoder();
     for(var i = 0; i < listOfCities.length; i++){
-	city = listOfCities[i];
-	geocoder.geocode( { 'address': listOfCities[i]}, function(results, status) {
+		       city = listOfCities[i];
+		       geocoder.geocode( { 'address': listOfCities[i]}, function(results, status) {
 	    if (status == google.maps.GeocoderStatus.OK) {   
 		position = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
 		
-		marker =  new google.maps.Marker({position: position, map:map});
-		google.maps.event.addListener(marker, 'click', function() {
-		    var city;
-		    geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
+		       marker =  new google.maps.Marker({position: position, map:map});
+		       google.maps.event.addListener(marker, 'click', function() {
+		       var city;
+		       geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
+		       if (status == google.maps.GeocoderStatus.OK) {
 			    city = results[0].address_components[3].long_name;
 			    cityString= "/"+city;
 			    toParse = cityString.split(" ");
@@ -70,7 +71,7 @@ function initialize() {
 		});
 		
 	    } else {
-		alert("Something is wrong " + status);
+		<!-- alert("Something is wrong " + status); -->
 	    }
 	});
     }

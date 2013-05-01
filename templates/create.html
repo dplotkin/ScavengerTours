@@ -16,12 +16,12 @@
 <script type="text/javascript">
     var map;
 var listOfLatLng = [];
-
+var searched = false;
+var markers = [];
 google.maps.event.addDomListener(window, 'load', initialize);
 
 function initialize() {
-    
-    $('#search').keypress(function(event){
+     $('#search').keypress(function(event){
 	
 	var keycode = (event.keyCode ? event.keyCode : event.which);
 	if(keycode == '13'){
@@ -43,7 +43,11 @@ function initialize() {
  
 </script>
     
-    <script type="text/javascript">
+<script type="text/javascript">
+    if (searched){
+	
+	
+
     var Search = function() {
 	
      	var geocoder =  new google.maps.Geocoder();
