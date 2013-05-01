@@ -6,12 +6,13 @@ body {
 .footer {
     margin: 0;
     clear: both;
-    padding: 15px 60px 15px;
+    padding: auto 60px;
     vertical-align: middle;
     line-height: normal;
     position: fixed;
     bottom: 0px;
     width: 100%;
+    height: 10%;
     background-color: #000000;
 }
 
