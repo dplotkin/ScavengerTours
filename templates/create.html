@@ -85,7 +85,6 @@ function initialize() {
 {% endblock maps %}
 
 {% block container %}
-<!-- CHANGE THE HEIGHT OF THE UNIT -->
 <div class="hero-unit pull-right" style="margin:20px;width:30%;">
   <h4 class="alt-heading-two">Create a Tour</h4>
   <div class="form-horizontal" style="margin:40px -30px 25px">
@@ -118,21 +117,18 @@ function initialize() {
 	<label class="control-label" for="citysearch">Search: </label>
 	<div class="controls">
 	  <div class="input-append" id="citysearch">
-	    
-	    <div class="controls">
-	      <div class="input-append" id="citysearch">
-		<input type="text" id="search" class="span2 pull-left" name="city" title="Search for your city."></input>
-		<input value="Go!" onclick="Search()" class="btn span1"></input>
-	      </div>
-	      <input type="submit" value="Create" class="btn btn-large btn-addtomobile" style="margin:50px;"/>
+	    <input type="text" id="search" class="span2 pull-left" name="city" title="Search for your city."></input>
+	    <input value="Go!" onclick="Search()" class="btn span1"></input>
+	  </div>
+	  <input type="submit" value="Create" class="btn btn-large btn-addtomobile" style="margin:50px;"/>
 	    </div>
 	  </div>
 	</div>
       </div>
     </form>
   </div>
-  <div style="margin:200px">
-  </div>
+</div>
+<div style="margin:0px">
 </div>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
