@@ -11,7 +11,7 @@ def drop():
     db.tours.drop()
     db.users.drop()
 
-def addTour(title, description, clues, hints, ratings, reviews, coordinates, city, image):
+def addTour(title, description, clues, hints, ratings, coordinates, reviews, city, image):
     db.tours.insert({'title':title, 'description':description, 'clues':clues, 'hints':hints, 'ratings':ratings, 'coordinates': coordinates, 'reviews': reviews, 'city':city, 'image':image})
 
 def addUser(username, accesskey):
@@ -63,7 +63,7 @@ def addTourStop(title, clue, hint, coordinates):
             tmpc.append(clue)
             tmph.append(hint)
             tmpco.append(coordinates)
-            db.tours.update({"title":title},{"title":title, "description":tour["description"], "clues":tmpc, "hints":tmph, "ratings":tour["ratings"], "reviews":tour["reviews"], "coordinates":tmpco, "city": tour["city"], "image": tour["image"]})
+            db.tours.update({"title":title},{"title":title, "description":tour["description"], "clues":tmpc, "hints":tmph, "ratings":tour["ratings"], "coordinates":tmpco, "reviews":tour["reviews"], "city": tour["city"], "image": tour["image"]})
 
 def goToNextStage(username, title):
     for user in db.users.find():
