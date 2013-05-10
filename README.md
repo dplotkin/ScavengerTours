@@ -52,6 +52,22 @@
   
 </ul>
 
+Things to add:
+Readme look better
+About page
+Widths on create
+Create a tour picture
+Pictorial hints
+Try to register twice
+Review/rate(+points)
+Point-hint system
+
+MOBILE SITE
+Replace footer with simple header
+No create
+Only current tour?
+Margins
+Font size
 
 <br><br>
 
