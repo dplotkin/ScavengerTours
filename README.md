@@ -64,11 +64,13 @@ Things to add:
 <li>Point-hint system</li>
 </ul>
 MOBILE SITE
-Replace footer with simple header
-No create
-Only current tour?
-Margins
-Font size
+<ul>
+<li>Replace footer with simple header</li>
+<li>No create</li>
+<li>Only current tour?</li>
+<li>Margins</li>
+<li>Font size</li>
+</ul>
 
 <br><br>
 
