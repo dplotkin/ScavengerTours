@@ -53,15 +53,16 @@
 </ul>
 
 Things to add:
-Readme look better
-About page
-Widths on create
-Create a tour picture
-Pictorial hints
-Try to register twice
-Review/rate(+points)
-Point-hint system
-
+<ul>
+<li>Readme look better</li>
+<li>About page</li>
+<li>Widths on create</li>
+<li>Create a tour picture</li>
+<li>Pictorial hints</li>
+<li>Try to register twice</li>
+<li>Review/rate(+points)</li>
+<li>Point-hint system</li>
+</ul>
 MOBILE SITE
 Replace footer with simple header
 No create
