@@ -17,7 +17,7 @@
 		  <div class="span4">
 		    <img src="/static/img/scavengertourlogo.png" style="margin-top:20px;height:100px">
 		  </div>
-		  <div class="span8" style="text-align:justify">
+		  <div class="span8">
 		    <h1 class="alt-heading" style="margin-top:30px">Welcome!</h1>
 		  </div>
 		</div>
@@ -29,24 +29,18 @@
 	      </div>
 
 	      <div class="span6 offset1" id="#signinbox">
-		<br>
-		{% if correct == 0 %}
-		<div class="alert alert-error">
-		  <i class="icon-warning-sign"></i> Incorrect username or password.
-		</div>
-		{% endif %}
-		<br>
+		<br><br>
 		<form method="POST" action="" class="form-signin">
-		  <h2>Please Sign In</h2>
+		  <h2>Sign Up</h2>
 		  <p><div class="input-prepend">
-		    <span class="add-on">Username: </span>
-		    <input type="text" class="span6" name="username" size="15" /><br />
+		    <span class="add-on">New Username: </span>
+		    <input type="text" class="span5" name="username" size="15" /><br />
 		  </div></p>
 		  <p><div class="input-prepend">
-		    <span class="add-on">Password: </span>
-		    <input type="password" class="span6" name="password" size="15" /><br />
+		    <span class="add-on">New Password: </span>
+		    <input type="password" class="span5" name="password" size="15" /><br />
 		  </div></p>
-		  <p><input type="submit" value="Login" class="btn btn-large"/></p>
+		  <p><input type="submit" value="Register" class="btn btn-large"/></p>
 		</form>
 	      </div>	      
 	    </div>
