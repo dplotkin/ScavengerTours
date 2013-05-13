@@ -1,0 +1,87 @@
+
+{% extends "index.html" %}
+{% block container %}
+
+
+    <br><br>
+    <div class="container-fluid">
+      <div class="row-fluid">
+	<div class="container special">
+	  <img src="/static/img/scavengertourlogo.png" width="150px">
+	  <h1 class="headingtwo" style="font-family: 'Playball', cursive">Hello, {{ user }}!</h1>
+	</div>
+      </div>
+      <div class="row-fluid">
+
+	<!-- Your Score -->
+	<div class="span5">
+	  <div class="hero-unit special" style="margin-top:120px">
+	    <h2 class="alt-heading">Your Score</h2>
+	    <h2><i class="icon-trophy"></i>: {{ points }}</h2>
+	  </div><br>
+	  <div class="hero-unit special">
+	    <h2 class="alt-heading">Ongoing Tour</h2>
+	    {% if currentTour != "None" %}
+	    <h3><a href="/{{ currentCity }}/{{ currentTour }}/{{ currentTour }}/{{ currentStage }}"> {{ currentTour }}</a></h3>
+	    {% else %}
+	    <h3>Oh no! You aren't taking any tours right now!</h3>
+	    {% endif %}
+	  </div>
+	</div>
+	<div style="margin:200px">
+	</div>
+	<!-- Create/Take Tours -->
+	<div class="span7">
+	  <div class="featurette" style="margin-top:-120px">
+	    <a href="/create">
+	      <img class="featurette-image pull-left img-rounded img-createtour" src="/static/img/createatour.gif">
+	    </a>
+	    <h2 class="alt-heading">
+	      <i class="icon-chevron-left"></i> Create a Tour
+	    </h2>
+	    <p class="lead">Choose a city from the following map, add locations and clues, then release your tour out into the wild to be enjoyed by all.</p>
+	  </div>
+
+	  <div class="featurette">
+	    <a href="/tours">
+	      <img class="featurette-image pull-right img-rounded" src="/static/img/takeatour.gif" style="margin-left: 20px">
+	    </a>
+	    <h2 class="alt-heading">
+	      Select a Tour <i class="icon-chevron-right"></i>
+	    </h2>
+	    <p class="lead">Choose a city from the map, then a tour from the selections within the chosen city. Click the button to add it to your mobile device, then go outside and enjoy your tour!</p>
+	  </div>
+
+	  <div style="margin: 200px">
+	  </div>
+
+	</div>
+      </div>
+    </div>
+    {% endblock container %}
+
+    {% block footer %}    
+    <!-- Footer! -->
+    <div class="footer">
+      <div class="row-fluid">
+	<div class="span1">
+	  <a href="/home">
+	    <img src="/static/img/scavengertourlogo.png" width="50px">
+	  </a>
+	</div>
+	<div class="span3" style="padding:10px">
+	  Grits McGrits · 2013<br>
+	  Pattern courtesy of <a target="_blank" href="http://www.subtlepatterns
+.com">Subtle Patterns</a>
+	</div>
+	<div class="span3" style="padding:10px">
+	  <i class="icon-trophy"></i> Your score: {{ points }}<br>
+	  <a href="https://github.com/stuycs-softdev/ScavengerTours"><i class="icon-github-sign"></i></a> View project code
+	</div>
+	<div class="span3" style="padding:10px">
+	  <a href="/home"><i class="icon-home"></i> Back to Home</a><br>
+	  <a href="/logout"><i class="icon-signout"></i> Sign Out</a>
+	</div>
+      </div>
+    </div>
+    {% endblock footer %}

@@ -1,0 +1,22 @@
+{% extends "homepage.html" %}
+{% block container %}
+  <div class="body">
+    <div class="container-fluid">
+      <div class="hero-unit">
+	  <h1 class="alt-heading">{{ tour }}</h1>
+	  <div class="row-fluid">
+	    <div class="span8">
+	      <br><br>
+	      <p>{{ description }}</p><br>
+	      <form method="POST" action="">
+		<p><input class="btn btn-large btn-addtomobile" type="submit" value="Begin Tour" /></p>
+	      </form>
+	    </div>
+	    <div class="span4">
+	      <img class="pull-right img-rounded" src="{{ image }}" style="margin-top:-40px;height:200px">
+	    </div>
+	  </div>
+      </div>
+    </div>
+  </div>
+{% endblock container %}

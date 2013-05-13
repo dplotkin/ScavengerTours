@@ -1,0 +1,52 @@
+{% extends "homepage.html" %}
+{% block container %}
+
+  <div class="body">
+    <br><br>
+    <div class="container-fluid">
+      <div class="container special">
+	<h1 class="headingtwo">{{ city }}</h1>
+      </div>
+      <br><br>
+
+      {% if count%2 != 0 %}
+      {% set count = count-1 %}
+      {% endif %}
+      
+      {% for tour in tours %}
+      
+      {% if count%2 == 0 %}
+      <div class="row-fluid">
+	{% endif %}
+
+	<div class="span6">
+	  <div class="hero-unit special" style="margin-top:0px;padding:20px;height:140px">
+	    <div class="span6">
+	      <a href="/{{ city }}/{{ tour }}">
+		<img src={{ images[loop.index0] }} class="img-circle" width="180" height="100">
+	      </a>
+	    </div>
+	    <div class="span2" style="margin-left:-10px">
+	      <br><a href="/{{ city }}/{{ tour }}"><i class="icon-caret-left icon-4x"></a></i>
+	    </div>
+	    <div class="span4">
+	      <h3> {{ tour }}</h3>
+	    </div>
+	  </div>
+	</div>
+
+	{% if count%2 != 0 %}
+      </div>
+      {% endif %}
+
+      {% if count == 0 %}
+    </div>
+      {% endif %}
+	
+	{% set count = count-1 %}
+	{% endfor %}
+  </div>
+  <div style="margin:100px">
+  </div>
+
+      {% endblock container %}

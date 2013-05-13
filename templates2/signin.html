@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+
+{% block container %}
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+	<div class="span12">
+	  <br><br>
+
+	  <!-- Hero unit for the welcome message and sign up -->
+	  <div class="hero-unit" style="margin-top:30px">
+
+	    <!-- This is a welcome message -->
+	    <div class="row-fluid">
+	      <div class="span5">
+		<div class="row-fluid">
+		  <div class="span4">
+		    <img src="/static/img/scavengertourlogo.png" style="margin-top:20px;height:100px">
+		  </div>
+		  <div class="span8" style="text-align:justify">
+		    <h1 class="alt-heading" style="margin-top:30px">Welcome!</h1>
+		  </div>
+		</div>
+		<p style="text-align:justify">
+		  <br>Have you ever visited a city and felt that ordinary tourist handbooks and attractions did not do their job as thoroughly as expected?<br><br>
+		  Or perhaps you have a unique perspective on your hometown and have unusual sites that you want to share?<br><br>
+		  Any user can create their own ScavengerTour and share it, allowing others to go on a scavenger hunt around a city, using clues to guide them to new sites, whether they are a first-time tourist or have lived there all their life.
+		</p>
+	      </div>
+
+	      <div class="span6 offset1" id="#signinbox">
+		<br>
+		{% if correct == 0 %}
+		<div class="alert alert-error">
+		  <i class="icon-warning-sign"></i> Incorrect username or password.
+		</div>
+		{% endif %}
+		<br>
+		<form method="POST" action="" class="form-signin">
+		  <h2>Please Sign In</h2>
+		  <p><div class="input-prepend">
+		    <span class="add-on">Username: </span>
+		    <input type="text" class="span6" name="username" size="15" /><br />
+		  </div></p>
+		  <p><div class="input-prepend">
+		    <span class="add-on">Password: </span>
+		    <input type="password" class="span6" name="password" size="15" /><br />
+		  </div></p>
+		  <p><input type="submit" value="Login" class="btn btn-large"/></p>
+		</form>
+	      </div>	      
+	    </div>
+	  </div>
+	  <div style="margin:200px">
+	  </div>
+	</div>
+      </div>
+    </div>
+ 
+{% endblock container %}
