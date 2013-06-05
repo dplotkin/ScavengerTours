@@ -62,6 +62,10 @@ Things to add:
 <li>Try to register twice</li>
 <li>Review/rate(+points)</li>
 <li>Point-hint system</li>
+<li>Make a video</li>
+<li>Make maps clickable (for selecting points for a tour, and select a city)</li>
+<li>Figure out how to fix the problem where cities stored under one name appear under a different name and everything dies as a result</li>
+<li>Zoom on the city you're making a tour in</li>
 </ul>
 MOBILE SITE
 <ul>
