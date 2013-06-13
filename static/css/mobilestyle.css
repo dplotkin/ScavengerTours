@@ -1,8 +1,10 @@
 body {
+    margin: 20px;
 }
 
 i {
     color:black;
+    width:50%;
 }
 
 .footer {
