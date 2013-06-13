@@ -36,7 +36,7 @@ function initialize() {
 			       mapOptions);
     var listOfCities = [];
     {% for city in listOfCities %}
-    listOfCities.push("{{ city }}");
+    listOfCities.push("{{ city[1] }}");
     {% endfor %}
     <!-- listOfTestCities = ["Atlanta, Georgia", "New York, New York", "Toronto, Canada","boston","boulder, colorado","rome"]; -->
     var geocoder =  new google.maps.Geocoder();
@@ -52,6 +52,16 @@ function initialize() {
 		       geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
 		       if (status == google.maps.GeocoderStatus.OK) {
 			    city = results[0].address_components[3].long_name;
+		            {% for city in listOfCities %}
+		            NewList.push(city)
+		            var userCity = ""
+		            {% endfor %}
+		            for (var x = 0; x < NewList.length; x++){
+						if (NewList[x][0] == city){
+						userCity = NewList[x][1]
+						}
+						}
+			    city = userCity
 			    cityString= "/"+city;
 			    toParse = cityString.split(" ");
 			    cityString = "";
