@@ -1,5 +1,7 @@
 body {
     margin: 10px 5px;
+    background-image: url("../img/mochaGrunge.png");
+    background-repeat: repeat;
 }
 
 a {
