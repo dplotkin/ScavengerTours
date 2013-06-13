@@ -21,7 +21,7 @@ var markers = [];
 google.maps.event.addDomListener(window, 'load', initialize);
 
 function initialize() {
-     $('#search').keypress(function(event){
+    $('#search').keypress(function(event){
 	
 	var keycode = (event.keyCode ? event.keyCode : event.which);
 	if(keycode == '13'){
@@ -35,50 +35,110 @@ function initialize() {
 	zoom: 4,
 	mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+    
     map  = new google.maps.Map(document.getElementById("map-canvas"),
 			       mapOptions);
+ 
+    google.maps.event.addListener(map, 'click', function(event) {
+	placeMarker(event.latLng);
+	console.log(event.latLng.toString());
+	var geocoder =  new google.maps.Geocoder();
+   	geocoder.geocode({ 'latLng': event.latLng}, function(results, status) {
+	    if (status == google.maps.GeocoderStatus.OK) {
+		try { 
+		    city = results[0].address_components[2].long_name;
+		    console.log(city);
+		}
+		catch(error){
+		    alert("The location you clicked is unavailable. Please click elsewhere, or try using the text input field.");
+		}
+		
+		place = city;
+		
+		$("#selectedCity").val(place);
+	    }
+	});	
+    });
+    var lastMarker = null;    
+    var isMarker = 0;
+
+    function placeMarker(location) {
+    console.log("-----------------------------------------------")
+	console.log(isMarker);
+	if (isMarker == 0){
+	    var marker = new google.maps.Marker({
+		position: location,
+		map: map
+	    });
+	
+	    <!-- map.setCenter(location); -->
+	    lastMarker = marker;
+            isMarker = 1;
+            console.log(lastMarker);
+            console.log(isMarker);    
+	}
+	else{
+	    lastMarker.setMap(null);
+	    console.log("Deleted");
+	    var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+
+            // map.setCenter(location);
+	    lastMarker = marker;
+	}
+    }
 }
 
- 
- 
 </script>
     
 <script type="text/javascript">
-  <!-- if (searched){ -->
-		      
+
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+	position: location,
+	map: map
+    });
+    
+    <!-- map.setCenter(location); -->
+}
+
 	
 
-		      var Search = function() {
-	
-     	var geocoder =  new google.maps.Geocoder();
-	city1 = $('#search').val();
-	console.log(city1);
-	geocoder.geocode({'address': city1}, function(results, status) {
-	    if (status == google.maps.GeocoderStatus.OK) {   
-		console.log(status);
-		position = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
-		console.log(position);
-		marker =  new google.maps.Marker({position: position, map:map});
-		
-		geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
-		    if (status == google.maps.GeocoderStatus.OK) {
+var Search = function() {
+    
+    var geocoder =  new google.maps.Geocoder();
+    city1 = $('#search').val();
+    console.log(city1);
+    geocoder.geocode({'address': city1}, function(results, status) {
+	if (status == google.maps.GeocoderStatus.OK) {   
+	    console.log(status);
+	    position = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+	    console.log(position);
+	    placeMarker(position);
+	    marker =  new google.maps.Marker({position: position, map:map});
+	    
+	    geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
 			city = results[0].address_components[3].long_name;
-			console.log(city);
-		    }
-		    
-		    place = city;
-		    
-		    $("#selectedCity").val(place);
+		    console.log(city);
 		}
-				 
-				) 
-    		
 		
-	    } else {
-		alert("Something is wrong " + status);
+		place = city;
+		
+		$("#selectedCity").val(place);
 	    }
-	});
-    };
+			     
+			    ) 
+    	    
+	    
+	    
+	} else {
+	    alert("Your search was not fruitful: " + status);
+	}
+    });
+};
 </script>
     
 
