@@ -1,0 +1,116 @@
+{% extends "homepage.html" %}
+{% block maps %}
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map-canvas { margin:20px 40px; width: 50%; height:85%; float:left; }
+</style>
+<div id="map-canvas"></div>
+<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXACwRsXh1G7jZUk4PE_oOqqM2lNEXduU&sensor=false">
+</script>
+<!-- <script src="/static/js/jquery.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
+<script type="text/javascript">
+      var map;
+      var listOfLatLng = [];
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+      function initialize() {
+ 
+      var mapOptions = {
+      center: new google.maps.LatLng(35.029996,-95.273437),
+      zoom: 4,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map  = new google.maps.Map(document.getElementById("map-canvas"),
+      mapOptions);
+      }
+
+ 
+ 
+</script>
+<script type="text/javascript">
+     var Search = function() {
+
+     	var geocoder =  new google.maps.Geocoder();
+	city1 = $('#search').val();
+      console.log(city1);
+	geocoder.geocode({'address': city1}, function(results, status) {
+	    if (status == google.maps.GeocoderStatus.OK) {   
+     console.log(status);
+		position = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+		console.log(position);
+		marker =  new google.maps.Marker({position: position, map:map});
+
+		    geocoder.geocode({ 'latLng': this.position  }, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+			    citylat = results[0].geometry.location.lat();
+     citylng = results[0].geometry.location.lng();
+     city = citylat + "," + citylng
+     
+				console.log(city);
+			    }
+
+			    place = city;
+
+			    $("#selectedStop").val(place);
+			}
+ 
+		    ) 
+    		    
+		
+	    } else {
+		alert("Something is wrong " + status);
+	    }
+	});
+};
+</script>
+
+
+{% endblock maps %}
+{% block container %}
+<div class="hero-unit pull-right" style="margin:40px 35px;width:30%;">
+  <h4 class="alt-heading-two">Enter Stop #{{ number }}</h4>
+  <form method="POST" action="" name="newness" value="newness" class="form-horizontal" style="margin:25px -30px -30px">
+    <div class="control-group">
+      <label class="control-label" for="clue">Clue #{{ number }}: </label>
+      <div class="controls">
+	<textarea type="text" name="clue" title="The Clue for this location in the Scavenger Hunt" id="clue" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="hint">Hint #{{ number }}: </label>
+      <div class="controls">
+	<textarea name="hint" title="Give a hint if the user has trouble finding the location." rows="3" id="description"></textarea>
+      </div>
+    </div>
+   
+    <div class="control-group">
+      <label class="control-label" for="selectedStop">Coordinates: </label>
+      <div class="controls">
+	<input id="selectedStop" class="span3" name="coords" /><br>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="stopsearch">Search: </label>
+      <div class="controls">
+	<div class="input-append" id="stopsearch">
+	  <input type="text" id="search" class="span2" name="stop" title="Search for your city."></input>
+	  <input value="Go!" onclick="Search()" class="btn span1"></input>
+	</div>
+	<button type="submit" name="newness" class="btn btn-large btn-info" style="margin:50px;">Next</button>
+      </div>
+    </div>
+  </form><hr style="border:1px solid #898989">
+  <form method="POST" name="Finish" action="">
+<input type="submit" name="Finish" value="Finish" class="btn btn-large btn-addtomobile"/>
+</form>
+</div>
+<div style="margin:0px">
+</div>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
+{% endblock %}

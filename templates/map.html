@@ -31,8 +31,8 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       map  = new google.maps.Map(document.getElementById("map-canvas"),
-      mapOptions);
-directionsDisplay.setMap(map);
+      mapOptions); 
+      directionsDisplay.setMap(map);
       
       google.maps.event.addListener(map, 'click', function(event) {
 	  if(listOfLatLng.length == 10){console.log("SKADFJJKDSFAJKDASFSDFJK");calcRoute();}
@@ -102,7 +102,7 @@ var request = {
       Clue!<input type="textarea" name="clue"/>
       Hint! <input type="textarea" name="hint"/>
     </form>
-	 
+    
     
   </body>
 </html>

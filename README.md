@@ -1,9 +1,26 @@
-ScavengerTours
+<h1>ScavengerTours</h1>
 ==============
+<h3>Deployed now at <a href="http://ml7.stuycs.org:1995/">ml7.stuycs.org:1995</a></h3>
+<img src="/static/img/scavengertourlogo.png" alt="logo">
 
 <ul>
   <li>Group Members: Sarah Babski, Claire Hripcsak, Denis Plotkin, Sofia Wyetzner</li>
   <li>Group Leader: Sofia Wyetzner*</li>
+<p>*We, as a commune, subscribe to the Marxist set of ideals and hence do not recongnize the concept of a "group leader". Sofia is simply the figure-head of our local government.</p>
+
+<h2>Used in this project:</h2>
+<ul>
+  <li>pymongo</li>
+  <li>flask</li>
+  <li>Google Maps Api</li>
+  <li>HTML 5 Geocoding</li>
+</ul>
+
+<br>
+
+<h3>Enjoy!</h3>
+
+
   <li>Tasks</li>
   <img src="plan.jpg" alt="plan">
   <li>Task Leaders:</li>
@@ -38,4 +55,4 @@ ScavengerTours
 
 <br><br>
 
-*We, as a commune, subscribe to the Marxist set of ideals and hence do not recongnize the concept of a "group leader". Sofia is simply the figure-head of our local government.    
+ 
