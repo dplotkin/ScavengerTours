@@ -7,6 +7,10 @@ i {
     width:50%;
 }
 
+.smargin {
+    margin: 0px 5px;
+}
+
 .footer {
     margin: 0;
     clear: both;
