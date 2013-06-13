@@ -1,6 +1,10 @@
 body {
 }
 
+i {
+    color:black;
+}
+
 .footer {
     margin: 0;
     clear: both;
