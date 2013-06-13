@@ -29,7 +29,13 @@
 	      </div>
 
 	      <div class="span6 offset1" id="#signinbox">
-		<br><br>
+		<br>
+		{% if correct == 0 %}
+		<div class="alert alert-error">
+		  <i class="icon-warning-sign"></i> Username is already taken
+		</div>
+		{% endif %}
+		<br>
 		<form method="POST" action="" class="form-signin">
 		  <h2>Sign Up</h2>
 		  <p><div class="input-prepend">

@@ -49,10 +49,16 @@ def geturl():
 
 @app.route("/register", methods=["GET","POST"])
 def register():
+    correct = 1
     if request.method == "POST" and request.form["username"] and request.form["password"]:
+        for user in db.getUserList():
+            if user[0] == request.form["username"]:
+                correct = 0
+                return redirect(url_for("register"))
         db.addUser(request.form["username"], request.form["password"])
+        correct = 0
         return redirect(url_for("login"))
-    return render_template("signup.html", title="Register")
+    return render_template("signup.html", title="Register", correct = correct)
 
 @app.route("/home")
 def home():
