@@ -69,6 +69,7 @@ Things to add:
 </ul>
 MOBILE SITE
 <ul>
+<li><a href="http://werkzeug.pocoo.org/docs/utils/#module-werkzeug.useragents" /></li>
 <li>Replace footer with simple header</li>
 <li>No create</li>
 <li>Only current tour?</li>
