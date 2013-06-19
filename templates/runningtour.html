@@ -14,12 +14,13 @@
       <div class="container" style="width:40%; margin-top:60px">
 	<h2>Clue:</h2>
 	<p style="font-size:18px">{{ clue }}</p><br>
+	<h3>Hint:</h3>
 	<form method="POST" name="hint" action="">
-	<button type="submit" name="hint" class="btn btn-info" data-target="#hint">
+	<button id="hintbtn" type="submit" name="hint" class="btn btn-info" data-target="#hint">
 	 Help! I need a hint. (-{{ stage + 1 }} pts)
 	</button>
 	</form>
-	<div id="hint" style="font-size:16px"> <p id="dhint" style="margin:20px">{{ hint }}</p></div>
+	<div id="hint" style="font-size:16px"> <p id="dhint" class="alert alert-info" style="margin:20px">{{ hint }}</p></div>
       </div>
     </div>
 
@@ -91,6 +92,9 @@ if (h.substring(0,4) == "http"){
 var hidden = "{{ hidden }}";
 if (hidden == "True"){
    $("#dhint").hide();
+}
+if (hidden == "False"){
+   $("#hintbtn").hide();
 }
 </script>
 {% endblock container %}
