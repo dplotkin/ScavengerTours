@@ -113,8 +113,9 @@ def touroverview(city, tour):
         if request.method == "POST":
             db.addCurrentTourtoUser(getUser(),tour)
             stage = str(db.getUser(getUser())[0][5])
+            hidden = "True"
             #return redirect(url_for("home"))
-            return redirect("/"+city+"/"+tour+"/"+tour+"/"+stage)
+            return redirect("/"+city+"/"+tour+"/"+tour+"/"+stage+"/"+hidden)
         return render_template('touroverview.html', city=city, tour=tour, description = description, image = image, points = points, title = tour)
     else:
         return redirect(url_for("index"))
@@ -166,8 +167,8 @@ def create2(tour, num):
             return redirect(url_for("home"))
     return render_template('create2.html', tour = tour, number = number, city = city)
 
-@app.route("/<city>/<tour>/<tour1>/<stage>", methods=["GET","POST"])
-def running(city, tour, tour1, stage):
+@app.route("/<city>/<tour>/<tour1>/<stage>/<hidden>", methods=["GET","POST"])
+def running(city, tour, tour1, stage, hidden):
     newstage = db.getUser(getUser())[0][5]
     points = db.getUser(session["user"])[0][3]
     print newstage
@@ -187,17 +188,24 @@ def running(city, tour, tour1, stage):
     # hint = db.getTour(tour)[0][3][newstage]
     print db.getUser(getUser())[0][5]
     if request.method == "POST":
-        db.goToNextStage(getUser(),tour)
-        print db.getUser(getUser())[0][5]
-        sstage = str(db.getUser(getUser())[0][5])
-        return  redirect("/"+city+"/"+tour+"/"+tour1+"/"+sstage)
-    return render_template('runningtour.html', city=city, tour=tour, stage=newstage, clue = clue, stages = stages, latitude = latitude, longitude = longitude, points = points, title = tour, hint = hint)
+        if request.form.has_key("hint"):
+            db.editPoints(getUser(),-(newstage+1))
+            hidden = "False"
+            sstage = str(newstage)
+            return redirect("/"+city+"/"+tour+"/"+tour1+"/"+sstage+"/"+hidden)
+        else:
+            db.goToNextStage(getUser(),tour)
+            print db.getUser(getUser())[0][5]
+            sstage = str(db.getUser(getUser())[0][5])
+            hidden = "True"
+            return  redirect("/"+city+"/"+tour+"/"+tour1+"/"+sstage+"/"+hidden)
+    return render_template('runningtour.html', city=city, tour=tour, stage=newstage, hidden=hidden, clue = clue, stages = stages, latitude = latitude, longitude = longitude, points = points, title = tour, hint = hint)
 
 
 @app.route("/complete")
 def complete():
     if "user" in session:
-        db.addPoints(getUser())
+        db.editPoints(getUser(),15)
         points = db.getUser(session["user"])[0][3]
         db.addCurrentTourtoUser(getUser(),"None")
         return render_template("complete.html", points=points)

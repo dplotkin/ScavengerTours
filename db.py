@@ -77,10 +77,10 @@ def goToNextStage(username, title):
                 else:
                      db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"], "currenttour":user["currenttour"], "currenttourstatus":"End"})
 
-def addPoints(username):
+def editPoints(username, points):
     for user in db.users.find():
         if user["username"] == username:
-            db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"]+15, "currenttour":user["currenttour"], "currenttourstatus":user["currenttourstatus"]})
+            db.users.update({"username":username},{"username":username, "accesskey":user["accesskey"], "tours":user["tours"], "points":user["points"]+points, "currenttour":user["currenttour"], "currenttourstatus":user["currenttourstatus"]})
 
 def __init__():
     drop()
