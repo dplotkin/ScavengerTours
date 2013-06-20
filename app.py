@@ -158,8 +158,14 @@ def create2(tour, num):
             hint = request.form["hint"]
             coords = request.form["coords"]
             newco = coords.split(',')
-            lat = float(newco[0])
-            lng = float(newco[1])
+            if newco[0] != "True":
+                lat = float(newco[0])
+            else:
+                lat = "True"
+            if newco[1] != "True":
+                lng = float(newco[1])
+            else:
+                lng = "True"
             newco = [lat,lng]
             print clue
             db.addTourStop(tour, clue, hint, newco)
