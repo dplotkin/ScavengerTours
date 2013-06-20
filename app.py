@@ -138,7 +138,7 @@ def create():
         title = request.form["title"]
         description = request.form["description"]
         image = request.form["image"]
-        city = request.form["city"]
+        city = request.form["selectedCity"]
         clues = []
         hints = []
         ratings = []
