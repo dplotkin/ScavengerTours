@@ -138,7 +138,7 @@ def create():
         title = request.form["title"]
         description = request.form["description"]
         image = request.form["image"]
-        city = request.form["city"]
+        city = request.form["selectedCity"]
         clues = []
         hints = []
         ratings = []
@@ -221,5 +221,5 @@ def complete():
     return redirect(url_for("index"))
 
 if __name__ == "__main__":
-    app.debug=True
+    app.debug=False
     app.run(host="0.0.0.0", port= 1995)
