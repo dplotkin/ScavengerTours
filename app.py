@@ -189,7 +189,7 @@ def running(city, tour, tour1, stage, hidden):
     print db.getUser(getUser())[0][5]
     if request.method == "POST":
         if request.form.has_key("hint"):
-            db.editPoints(getUser(),-(newstage+1))
+            db.editPoints(getUser(),-2)
             hidden = "False"
             sstage = str(newstage)
             return redirect("/"+city+"/"+tour+"/"+tour1+"/"+sstage+"/"+hidden)
@@ -205,7 +205,8 @@ def running(city, tour, tour1, stage, hidden):
 @app.route("/complete")
 def complete():
     if "user" in session:
-        db.editPoints(getUser(),15)
+        stages = len(db.getTour(tour)[0][2]) - 1
+        db.editPoints(getUser(),stages*5)
         points = db.getUser(session["user"])[0][3]
         db.addCurrentTourtoUser(getUser(),"None")
         return render_template("complete.html", points=points)
