@@ -16,25 +16,16 @@
       <h3>You aren't taking any tours right now!</h3>
       {% endif %}
     </div>
-	<!-- Create/Take Tours -->
-	  <div class="featurette">
-	    <a href="/tours">
-	      <img class="featurette-image pull-right img-rounded" src="/static/img/takeatour.gif" style="margin-left: 20px">
-	    </a>
-	    <h2 class="alt-heading">
-	      Select a Tour <i class="icon-chevron-right"></i>
-	    </h2>
-	    <p class="lead">Choose a city from the map, then a tour from the selections within the chosen city. Click the button to add it to your mobile device, then go outside and enjoy your tour!</p>
-	  </div>
-
-	  <div style="margin: 200px">
-	  </div>
-
-	</div>
+    <p style="margin-top:30px">
+      <div style="width:30%;float:left">
+	<img class="img-rounded" src="/static/img/takeatour.gif">
       </div>
-    </div> 
-    <strong>Grits McGrits · 2013</strong><br>
-    <div class="span3" style="padding:10px">
-      <a href="/logout"><i class="icon-signout"></i> Sign Out</a>
+      <div class="pull-right" style="width:70%;float:left">
+	<a href="/tours"><h1>Select a Tour</h1></a>
+      </div>
+    </p><br>
+    <div align="center" style="padding-top:50px">
+      <strong>Grits McGrits · 2013</strong><br>
+      <a href="/logout"><i class="icon-signout icon-2x">Sign Out</i></a>
     </div>
     {% endblock container %}
