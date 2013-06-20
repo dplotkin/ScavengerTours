@@ -57,7 +57,8 @@ def register():
                 return redirect(url_for("register"))
         db.addUser(request.form["username"], request.form["password"])
         correct = 0
-        return redirect(url_for("login"))
+        session["user"] = request.form["username"]
+        return redirect(url_for("index"))
     return render_template("signup.html", title="Register", correct = correct)
 
 @app.route("/home")
