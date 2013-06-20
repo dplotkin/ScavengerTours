@@ -212,11 +212,12 @@ def running(city, tour, tour1, stage, hidden):
 @app.route("/complete")
 def complete():
     if "user" in session:
-        stages = len(db.getTour(tour)[0][2]) - 1
+        tour = db.getUser(getUser())[0][4]
+        stages = len(db.getTour(tour)[0][2])
         db.editPoints(getUser(),stages*5)
         points = db.getUser(session["user"])[0][3]
         db.addCurrentTourtoUser(getUser(),"None")
-        return render_template("complete.html", points=points)
+        return render_template("complete.html", points=points, epoints=(stages*5))
     return redirect(url_for("index"))
 
 if __name__ == "__main__":
