@@ -14,10 +14,13 @@
       <div class="container" style="width:40%; margin-top:60px">
 	<h2>Clue:</h2>
 	<p style="font-size:18px">{{ clue }}</p><br>
-	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#hint">
-	 Help! I need a hint.
+	<h3>Hint:</h3>
+	<form method="POST" name="hint" action="">
+	<button id="hintbtn" type="submit" name="hint" class="btn btn-info" data-target="#hint">
+	 Help! I need a hint. (-2 pts)
 	</button>
-	<div id="hint" class="collapse out" style="font-size:16px"> <p id="dhint" style="margin:20px">{{ hint }}</p></div>
+	</form>
+	<div id="hint" style="font-size:16px"> <p id="dhint" class="alert alert-info" style="margin:20px">{{ hint }}</p></div>
       </div>
     </div>
 
@@ -83,6 +86,15 @@ var hint = document.getElementById("dhint");
 var h = "{{ hint }}";
 if (h.substring(0,4) == "http"){
     hint.innerHTML="<img src='"+h+"'>"
+}
+</script>
+<script>
+var hidden = "{{ hidden }}";
+if (hidden == "True"){
+   $("#dhint").hide();
+}
+if (hidden == "False"){
+   $("#hintbtn").hide();
 }
 </script>
 {% endblock container %}
