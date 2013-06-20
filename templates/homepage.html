@@ -8,13 +8,12 @@
 	<h1>Hello,<br>{{ user }}</h1>
       </div>
     </p><br>
-    <div align="center" style="padding-top:30px">
-      <i class="icon-trophy icon-2x">: {{ points }}</i><br>
-      <h2 class="alt-heading">Ongoing Tour</h2>
+    <div align="center" style="padding-top:50px">
+      <h3><i class="icon-trophy icon-2x">: {{ points }}</i></h3><br>
       {% if currentTour != "None" %}
-      <h3><a href="/{{ currentCity }}/{{ currentTour }}/{{ currentTour }}/{{ currentStage }}"> {{ currentTour }}</a></h3>
+      <h3><a href="/{{ currentCity }}/{{ currentTour }}/{{ currentTour }}/{{ currentStage }}"> Ongoing Tour: {{ currentTour }}</a></h3>
       {% else %}
-      <h3>Oh no! You aren't taking any tours right now!</h3>
+      <h3>You aren't taking any tours right now!</h3>
       {% endif %}
     </div>
 	<!-- Create/Take Tours -->
@@ -34,8 +33,8 @@
 	</div>
       </div>
     </div> 
-    Grits McGrits · 2013<br>
-	<div class="span3" style="padding:10px">
-	  <a href="/logout"><i class="icon-signout"></i> Sign Out</a>
-	</div>
-	{% endblock container %}
+    <strong>Grits McGrits · 2013</strong><br>
+    <div class="span3" style="padding:10px">
+      <a href="/logout"><i class="icon-signout"></i> Sign Out</a>
+    </div>
+    {% endblock container %}
