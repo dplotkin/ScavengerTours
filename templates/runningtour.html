@@ -63,15 +63,25 @@ function getLocation()
   }
 function parsePosition(position)
 {
+if("{{ latitude }}" == "True"){
+ x.innerHTML="<form method='POST' actions=''><p><button class='btn btn-info' type='submit' style='padding-top:15px'><i class='icon-ok icon-4x pull-right'></i><span style='font-size:25px;'>Correct!</span><br><span style='font-size:18px'>Next</span></button></p></form>";
+}
+else{
+if("{{ longitude }}" == "True"){
+ x.innerHTML="<form method='POST' actions=''><p><button class='btn btn-info' type='submit' style='padding-top:15px'><i class='icon-ok icon-4x pull-right'></i><span style='font-size:25px;'>Correct!</span><br><span style='font-size:18px'>Next</span></button></p></form>";
+}
+else{
 var distance = Math.sqrt(((Math.abs(position.coords.latitude)-Math.abs({{ latitude }}))*(Math.abs(position.coords.latitude)-Math.abs({{ latitude }}))) + ((Math.abs(position.coords.longitude) - Math.abs({{ longitude }}))*(Math.abs(position.coords.longitude) - Math.abs({{ longitude }}))));
 
 console.log(distance);
 radius = 1/1200
-if(distance < radius){
+if(distance < radius) {
 	      x.innerHTML="<form method='POST' actions=''><p><button class='btn btn-info' type='submit' style='padding-top:15px'><i class='icon-ok icon-4x pull-right'></i><span style='font-size:25px;'>Correct!</span><br><span style='font-size:18px'>Next</span></button></p></form>";
 }
 else{
 	      x.innerHTML="<div class=\"alert alert-error\" style=\"width:220px;padding:2px 10px;\">You're not there. Try again.</div>";
+}
+}
 }
 }
 function showPosition(position)
