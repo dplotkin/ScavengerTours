@@ -1,6 +1,6 @@
 <h1>ScavengerTours</h1>
 ==============
-<h3>Deployed now at <a href="http://ml7.stuycs.org:1995/">ml7.stuycs.org:1995</a></h3>
+<!-- <h3>Deployed now at <a href="http://ml7.stuycs.org:1995/">ml7.stuycs.org:1995</a></h3> -->
 <img src="/static/img/scavengertourlogo.png" alt="logo">
 
 <ul>
