@@ -1,9 +1,14 @@
-from pymongo import Connection
+#from pymongo import Connection
+from pymongo import MongoClient
+# connection = Connection('mongo2.stuycs.org')
+# db = connection.admin
+# db = db.authenticate('ml7','ml7')
+# db = connection['BelarussianMafia']
+# tours = db['tours']
+# users = db['users']
 
-connection = Connection('mongo2.stuycs.org')
-db = connection.admin
-db = db.authenticate('ml7','ml7')
-db = connection['BelarussianMafia']
+client = MongoClient()
+db = client.test_database
 tours = db['tours']
 users = db['users']
 
